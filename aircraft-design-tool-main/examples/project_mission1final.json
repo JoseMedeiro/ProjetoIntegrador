@@ -126,5 +126,135 @@
         "name": "Double Trouble"
       }
     ]
-  }
+  },
+  "mission": {
+        "segments": [
+            {
+                "name": "First Ascent",
+                "type": "vertical_climb",
+                "energy_network": "Electric Energy Network @ vertical flight",
+                "velocity": 4.0,
+                "altitude": [0.0, 100.0]
+            },
+            {
+                "name": "First Transition - Up",
+                "type": "transition",
+                "energy_network": "Electric Energy Network @ vertical flight",
+                "altitude": 100.0,
+                "transition_angle": 40.0,
+                "time": 120.0,
+                "velocity": [0.0, 20.0]
+            },
+            {
+                "name": "First Climb",
+                "type": "climb",
+                "energy_network": "Fuel Energy Network @ climb",
+                "velocity": 20.0,
+                "altitude": [500.0, 2500.0],
+                "angle": 10
+            },
+            {
+                "name": "Madeira - Porto Santo",
+                "type": "cruise",
+                "energy_network": "Fuel Energy Network @ cruise",
+                "velocity": 150.0,
+                "range": 80.0,
+                "altitude": 1500.0
+            },
+            {
+                "name": "First Descent",
+                "type": "descent",
+                "energy_network": "Electric Energy Network @ forward flight",
+                "velocity": -30.0,
+                "altitude": [1500.0, 100.0],
+                "angle": -5.0
+            },
+            {
+                "name": First Transition - Down",
+                "type": "transition",
+                "energy_network": "Electric Energy Network @ vertical flight",
+                "altitude": 100.0,
+                "transition_angle": 40.0,
+                "time": 120.0,
+                "velocity": [-30.0, 0.0]
+            },
+            {
+                "name": "Second Vertical Descent",
+                "type": "vertical_descent",
+                "energy_network": "Electric Energy Network @ vertical flight",
+                "velocity": -6.0,
+                "altitude": [100.0, 0.0]
+            },
+            {
+                "name": "Load Porto Santo",
+                "type": "load_step",
+                "mass": 100.0,
+                "time": 0.0,
+                "altitude": 1000.0
+            },
+            {
+                "name": Second Ascent",
+                "type": "vertical_climb",
+                "energy_network": "Electric Energy Network @ vertical flight",
+                "velocity": 4.0,
+                "altitude": [0.0, 100.0]
+            },
+            {
+                "name": Second Transition - Up",
+                "type": "transition",
+                "energy_network": "Electric Energy Network @ vertical flight",
+                "altitude": 500.0,
+                "transition_angle": 40.0,
+                "time": 120.0,
+                "velocity": [0.0, 20.0]
+            },
+            {
+                "name": "Second Climb",
+                "type": "climb",
+                "energy_network": "Fuel Energy Network @ climb",
+                "velocity": 20.0,
+                "altitude": [100.0, 1500.0],
+                "angle": 10
+            },
+            {
+                "name": "Porto Santo - Madeira",
+                "type": "cruise",
+                "energy_network": "Fuel Energy Network @ cruise",
+                "velocity": 150.0,
+                "range": 80.0,
+                "altitude": 1500.0
+            },
+            {
+                "name": "Second Descent",
+                "type": "descent",
+                "energy_network": "Fuel Energy Network @ idle",
+                "velocity": -30.0,
+                "altitude": [1500.0, 100.0],
+                "angle": -10.0
+            },
+            {
+                "name": "Second Transition - Down",
+                "type": "transition",
+                "energy_network": "Electric Energy Network @ vertical flight",
+                "altitude": 100.0,
+                "transition_angle": 40.0,
+                "time": 120.0,
+                "velocity": [-30.0, 0.0]
+            },
+            {
+                "name": "Second Vertical Descent",
+                "type": "vertical_descent",
+                "energy_network": "Electric Energy Network @ vertical flight",
+                "velocity": -4.0,
+                "altitude": [100.0, 0.0]
+            },
+            {
+                "name": "Final Descent",
+                "type": "landing",
+                "energy_network": "Fuel Energy Network @ idle",
+                "time": 120.0,
+                "altitude": 0.0
+            }
+        ]
+    }
 }
