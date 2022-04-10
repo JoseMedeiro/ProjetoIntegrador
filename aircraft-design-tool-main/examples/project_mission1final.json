@@ -150,7 +150,7 @@
                 "type": "climb",
                 "energy_network": "Fuel Energy Network @ climb",
                 "velocity": 20.0,
-                "altitude": [500.0, 2500.0],
+                "altitude": [500.0, 1500.0],
                 "angle": 10
             },
             {
@@ -203,7 +203,7 @@
                 "name": Second Transition - Up",
                 "type": "transition",
                 "energy_network": "Electric Energy Network @ vertical flight",
-                "altitude": 500.0,
+                "altitude": 100.0,
                 "transition_angle": 40.0,
                 "time": 120.0,
                 "velocity": [0.0, 20.0]
