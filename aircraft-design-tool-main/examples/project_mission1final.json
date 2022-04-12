@@ -132,14 +132,14 @@
             {
                 "name": "First Ascent",
                 "type": "vertical_climb",
-                "energy_network": "Electric Energy Network @ vertical flight",
+                "energy_network": "Electric Energy Network",
                 "velocity": 4.0,
                 "altitude": [0.0, 100.0]
             },
             {
                 "name": "First Transition - Up",
                 "type": "transition",
-                "energy_network": "Electric Energy Network @ vertical flight",
+                "energy_network": "Electric Energy Network",
                 "altitude": 100.0,
                 "transition_angle": 40.0,
                 "time": 120.0,
@@ -148,7 +148,7 @@
             {
                 "name": "First Climb",
                 "type": "climb",
-                "energy_network": "Fuel Energy Network @ climb",
+                "energy_network": "Hybrid Energy Network",
                 "velocity": 20.0,
                 "altitude": [500.0, 1500.0],
                 "angle": 10
@@ -156,7 +156,7 @@
             {
                 "name": "Madeira - Porto Santo",
                 "type": "cruise",
-                "energy_network": "Fuel Energy Network @ cruise",
+                "energy_network": "Hybrid Energy Network",
                 "velocity": 150.0,
                 "range": 80.0,
                 "altitude": 1500.0
@@ -164,15 +164,15 @@
             {
                 "name": "First Descent",
                 "type": "descent",
-                "energy_network": "Electric Energy Network @ forward flight",
+                "energy_network": "Hybrid Energy Network",
                 "velocity": -30.0,
                 "altitude": [1500.0, 100.0],
                 "angle": -5.0
             },
             {
-                "name": First Transition - Down",
+                "name": "First Transition - Down",
                 "type": "transition",
-                "energy_network": "Electric Energy Network @ vertical flight",
+                "energy_network": "Electric Energy Network",
                 "altitude": 100.0,
                 "transition_angle": 40.0,
                 "time": 120.0,
@@ -181,7 +181,7 @@
             {
                 "name": "Second Vertical Descent",
                 "type": "vertical_descent",
-                "energy_network": "Electric Energy Network @ vertical flight",
+                "energy_network": "Electric Energy Network",
                 "velocity": -6.0,
                 "altitude": [100.0, 0.0]
             },
@@ -193,16 +193,16 @@
                 "altitude": 1000.0
             },
             {
-                "name": Second Ascent",
+                "name": "Second Ascent",
                 "type": "vertical_climb",
-                "energy_network": "Electric Energy Network @ vertical flight",
+                "energy_network": "Electric Energy Network",
                 "velocity": 4.0,
                 "altitude": [0.0, 100.0]
             },
             {
-                "name": Second Transition - Up",
+                "name": "Second Transition - Up",
                 "type": "transition",
-                "energy_network": "Electric Energy Network @ vertical flight",
+                "energy_network": "Electric Energy Network",
                 "altitude": 100.0,
                 "transition_angle": 40.0,
                 "time": 120.0,
@@ -211,7 +211,7 @@
             {
                 "name": "Second Climb",
                 "type": "climb",
-                "energy_network": "Fuel Energy Network @ climb",
+                "energy_network": "Hybrid Energy Network",
                 "velocity": 20.0,
                 "altitude": [100.0, 1500.0],
                 "angle": 10
@@ -219,7 +219,7 @@
             {
                 "name": "Porto Santo - Madeira",
                 "type": "cruise",
-                "energy_network": "Fuel Energy Network @ cruise",
+                "energy_network": "Hybrid Energy Network",
                 "velocity": 150.0,
                 "range": 80.0,
                 "altitude": 1500.0
@@ -227,7 +227,7 @@
             {
                 "name": "Second Descent",
                 "type": "descent",
-                "energy_network": "Fuel Energy Network @ idle",
+                "energy_network": "Hybrid Energy Network",
                 "velocity": -30.0,
                 "altitude": [1500.0, 100.0],
                 "angle": -10.0
@@ -235,7 +235,7 @@
             {
                 "name": "Second Transition - Down",
                 "type": "transition",
-                "energy_network": "Electric Energy Network @ vertical flight",
+                "energy_network": "Electric Energy Network",
                 "altitude": 100.0,
                 "transition_angle": 40.0,
                 "time": 120.0,
@@ -244,14 +244,14 @@
             {
                 "name": "Second Vertical Descent",
                 "type": "vertical_descent",
-                "energy_network": "Electric Energy Network @ vertical flight",
+                "energy_network": "Electric Energy Network",
                 "velocity": -4.0,
                 "altitude": [100.0, 0.0]
             },
             {
                 "name": "Final Descent",
                 "type": "landing",
-                "energy_network": "Fuel Energy Network @ idle",
+                "energy_network": "Electric Energy Network",
                 "time": 120.0,
                 "altitude": 0.0
             }
@@ -371,13 +371,6 @@
                 "max_power": 210000
             },
             {
-                "name": "4-stroke Piston Engine",
-                "type": "engine.prop",
-                "efficiency": 0.8,
-                "mass": 100,
-                "max_power": 200000
-            },
-            {
                 "name": "Battery",
                 "type": "energy.electric",
                 "specific_energy": 360000.0,
@@ -394,7 +387,7 @@
             {
                 "name": "Rotor",
                 "type": "driver.rotor.main",
-                "number": 2,
+                "number": 4,
                 "number_blades": 5,
                 "radius": 2,
                 "rotor_solidity": 0.08,
@@ -403,16 +396,6 @@
                 "tip_velocity": 240.1,
                 "efficiency": 0.6,
                 "mass": 20
-            },
-            {
-                "name": "Propeller",
-                "type": "driver.rotor",
-                "number": 2,
-                "number_blades": 4,
-                "radius": 2.3,
-                "tip_velocity": 240.1,
-                "efficiency": 0.6,
-                "mass": 10
             },
             {
                 "name": "Gearbox",
@@ -429,7 +412,7 @@
             {
                 "name": "Electric Motor",
                 "type": "engine.prop",
-                "number": 2,
+                "number": 4,
                 "efficiency": 0.97,
                 "mass": 50,
                 "max_power": 200000
@@ -439,86 +422,7 @@
     "energy" : {
         "networks": [
             {
-                "name": "Fuel Energy Network @ climb",
-                "layout": [
-                    {
-                        "name": "Fuel Tank"
-                    },
-                    {
-                        "name": "4-stroke Piston Engine",
-                        "brake_specific_fuel_consumption": 4.25e-5
-                    },
-                    {
-                        "name": "Gearbox"
-                    },
-                    {
-                        "name": "Propeller"
-                    }
-                ]
-            },
-            {
-                "name": "Fuel Energy Network @ cruise",
-                "layout": [
-                    {
-                        "name": "Fuel Tank"
-                    },
-                    {
-                        "name": "Jet Engine",
-                        "specific_fuel_consumption": 3.4e-5
-                    }
-                ]
-            },
-            {
-                "name": "Fuel Energy Network @ hold",
-                "layout": [
-                    {
-                        "name": "Fuel Tank"
-                    },
-                    {
-                        "name": "4-stroke Piston Engine",
-                        "brake_specific_fuel_consumption": 2.55e-5
-                    },
-                    {
-                        "name": "Gearbox"
-                    },
-                    {
-                        "name": "Propeller"
-                    }
-                ]
-            },
-            {
-                "name": "Fuel Energy Network @ idle",
-                "layout": [
-                    {
-                        "name": "Fuel Tank"
-                    },
-                    {
-                        "name": "4-stroke Piston Engine",
-                        "brake_specific_fuel_consumption": 4.25e-6
-                    },
-                    {
-                        "name": "Gearbox"
-                    },
-                    {
-                        "name": "Propeller"
-                    }
-                ]
-            },
-            {
-                "name": "Electric Energy Network @ forward flight",
-                "layout": [
-                    {
-                        "name": "Battery"
-                    },
-                    {
-                        "name": "Electric Motor"
-                    },
-                    {	"name": "Propeller"
-                    }
-                ]
-            },
-            {
-                "name": "Electric Energy Network @ vertical flight",
+                "name": "Electric Energy Network",
                 "layout": [
                     {	"name": "Battery"
                     },
@@ -541,7 +445,7 @@
                     },
                     {	"name": "Electric Motor"
                     },
-                    {	"name": "Propeller"
+                    {	"name": "Rotor"
                     }
                 ]
             }
