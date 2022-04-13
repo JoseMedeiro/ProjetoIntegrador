@@ -190,7 +190,7 @@
                 "type": "load_step",
                 "mass": 100.0,
                 "time": 0.0,
-                "altitude": 1000.0
+                "altitude": 0.0
             },
             {
                 "name": "Second Ascent",
