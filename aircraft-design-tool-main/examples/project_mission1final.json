@@ -283,8 +283,8 @@
                 "name": "Fuselage",
                 "type": "fuselage",
                 "interf_factor": 1.0,
-                "diameter": 1.0,
-                "length": 4.0,
+                "diameter": 1.5,
+                "length": 5.0,
                 "mass": 800
             },
             {
