@@ -368,6 +368,7 @@
                 "type": "engine.prop",
                 "efficiency": 0.8,
                 "mass": 100,
+                "brake_specific_fuel_consumption": 4.25e-5, 
                 "max_power": 210000
             },
             {
@@ -415,7 +416,9 @@
                 "number": 4,
                 "efficiency": 0.97,
                 "mass": 50,
+                "brake_specific_fuel_consumption": 4.25e-5, 
                 "max_power": 200000
+
             }
         ]
     },

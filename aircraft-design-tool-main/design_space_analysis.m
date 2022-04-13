@@ -28,12 +28,12 @@ a.XLabel.String = 'W/P';
 a.YLim = [0 dl(end)];
 a.YLabel.String = 'W/A';
 a.LineStyleOrder = '-';
-colororder(colors)
+%colororder(colors)
 yyaxis left;
 a.YLim = [0 wl(end)];
 a.YLabel.String = 'W/S';
 a.LineStyleOrder = '-';
-colororder(colors)
+%colororder(colors)
 
 k = k_parameter(vehicle);
 
