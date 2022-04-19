@@ -299,7 +299,7 @@
                     "tc_max": 0.15,
                     "xc_max": 0.3,
                     "lift_slope_coefficient": 6.2,
-                    "cl_max": 2.0
+                    "cl_max": 1.6
                 },
                 "sweep_le": 10.0,
                 "sweep_c4": 15.0,
@@ -318,7 +318,7 @@
                     "tc_max": 0.15,
                     "xc_max": 0.3,
                     "lift_slope_coefficient": 6.2,
-                    "cl_max": 2.0
+                    "cl_max": 1.6
                 },
                 "sweep_le": 10.0,
                 "sweep_c4": 15.0,
