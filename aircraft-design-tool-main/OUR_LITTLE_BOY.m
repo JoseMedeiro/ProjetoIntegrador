@@ -1,4 +1,4 @@
-%% Let's what boy is our best
+%% Let's see what boy is our best
 
 adt('examples/project-01.json')
 

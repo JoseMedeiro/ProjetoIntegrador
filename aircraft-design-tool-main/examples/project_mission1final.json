@@ -143,31 +143,31 @@
                 "altitude": 100.0,
                 "transition_angle": 40.0,
                 "time": 120.0,
-                "velocity": [0.0, 20.0]
+                "velocity": [4.0, 60.0]
             },
             {
                 "name": "First Climb",
                 "type": "climb",
                 "energy_network": "Hybrid Energy Network",
-                "velocity": 20.0,
-                "altitude": [100.0, 1500.0],
+                "velocity": 60.0,
+                "altitude": [100.0, 1100.0],
                 "angle": 10
             },
             {
                 "name": "Madeira - Porto Santo",
                 "type": "cruise",
                 "energy_network": "Hybrid Energy Network",
-                "velocity": 150.0,
+                "velocity": 110.0,
                 "range": 80000.0,
-                "altitude": 1500.0
+                "altitude": 1100.0
             },
             {
                 "name": "First Descent",
                 "type": "descent",
                 "energy_network": "Hybrid Energy Network",
-                "velocity": -30.0,
-                "altitude": [1500.0, 100.0],
-                "angle": -5.0
+                "velocity": -70.0,
+                "altitude": [1100.0, 100.0],
+                "angle": -10.0
             },
             {
                 "name": "First Transition - Down",
@@ -176,13 +176,13 @@
                 "altitude": 100.0,
                 "transition_angle": 40.0,
                 "time": 120.0,
-                "velocity": [-30.0, 0.0]
+                "velocity": [-70.0, -4.0]
             },
             {
                 "name": "Second Vertical Descent",
                 "type": "vertical_descent",
                 "energy_network": "Electric Energy Network",
-                "velocity": -6.0,
+                "velocity": -4.0,
                 "altitude": [100.0, 0.0]
             },
             {
@@ -196,7 +196,7 @@
                 "name": "Second Ascent",
                 "type": "vertical_climb",
                 "energy_network": "Electric Energy Network",
-                "velocity": 4.0,
+                "velocity": 3.0,
                 "altitude": [0.0, 100.0]
             },
             {
@@ -206,30 +206,30 @@
                 "altitude": 100.0,
                 "transition_angle": 40.0,
                 "time": 120.0,
-                "velocity": [0.0, 20.0]
+                "velocity": [3.0, 60.0]
             },
             {
                 "name": "Second Climb",
                 "type": "climb",
                 "energy_network": "Hybrid Energy Network",
-                "velocity": 20.0,
-                "altitude": [100.0, 1500.0],
+                "velocity": 60.0,
+                "altitude": [100.0, 1100.0],
                 "angle": 10
             },
             {
                 "name": "Porto Santo - Madeira",
                 "type": "cruise",
                 "energy_network": "Hybrid Energy Network",
-                "velocity": 150.0,
+                "velocity": 110.0,
                 "range": 80000.0,
-                "altitude": 1500.0
+                "altitude": 1100.0
             },
             {
                 "name": "Second Descent",
                 "type": "descent",
                 "energy_network": "Hybrid Energy Network",
-                "velocity": -30.0,
-                "altitude": [1500.0, 100.0],
+                "velocity": -70.0,
+                "altitude": [1100.0, 100.0],
                 "angle": -10.0
             },
             {
@@ -239,7 +239,7 @@
                 "altitude": 100.0,
                 "transition_angle": 40.0,
                 "time": 120.0,
-                "velocity": [-30.0, 0.0]
+                "velocity": [-70.0, -4.0]
             },
             {
                 "name": "Second Vertical Descent",
@@ -283,8 +283,8 @@
                 "name": "Fuselage",
                 "type": "fuselage",
                 "interf_factor": 1.0,
-                "diameter": 1.5,
-                "length": 5.0,
+                "diameter": 1.75,
+                "length": 6,
                 "mass": 800
             },
             {
@@ -292,26 +292,7 @@
                 "type": "wing.main",
                 "interf_factor": 1.0,
                 "aspect_ratio": 7.0,
-                "mean_chord": 3.0,
-                "oswald_efficiency": 0.85,
-                "airfoil": {
-                    "type": "naca0012",
-                    "tc_max": 0.15,
-                    "xc_max": 0.3,
-                    "lift_slope_coefficient": 6.2,
-                    "cl_max": 1.6
-                },
-                "sweep_le": 10.0,
-                "sweep_c4": 15.0,
-                "sweep_tc_max": 20.0,
-                "mass": 200
-            },
-            {
-                "name": "Main Wing Back",
-                "type": "wing.main",
-                "interf_factor": 1.0,
-                "aspect_ratio": 7.0,
-                "mean_chord": 3.0,
+                "mean_chord": 3.5,
                 "oswald_efficiency": 0.85,
                 "airfoil": {
                     "type": "naca0012",
@@ -329,20 +310,20 @@
                 "name": "Horizontal Tail",
                 "type": "wing.htail",
                 "interf_factor": 1.0,
-                "aspect_ratio": 5.0,
-                "mean_chord": 0.5,
+                "aspect_ratio": 7.0,
+                "mean_chord": 3.5,
                 "oswald_efficiency": 0.85,
                 "airfoil": {
                     "type": "naca0012",
                     "tc_max": 0.15,
                     "xc_max": 0.3,
                     "lift_slope_coefficient": 6.2,
-                    "cl_max": 2.0
+                    "cl_max": 1.6
                 },
                 "sweep_le": 10.0,
                 "sweep_c4": 15.0,
                 "sweep_tc_max": 20.0,
-                "mass": 50
+                "mass": 200
             },
             {
                 "name": "Vertical Tail",
@@ -390,7 +371,7 @@
                 "type": "driver.rotor.main",
                 "number": 4,
                 "number_blades": 5,
-                "radius": 2,
+                "radius": 3,
                 "rotor_solidity": 0.08,
                 "induced_power_factor": 1.15,
                 "base_drag_coefficient": 0.02,
@@ -417,7 +398,7 @@
                 "efficiency": 0.97,
                 "mass": 50,
                 "brake_specific_fuel_consumption": 4.25e-5, 
-                "max_power": 200000
+                "max_power": 550000
 
             }
         ]

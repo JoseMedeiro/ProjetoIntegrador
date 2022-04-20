@@ -16,7 +16,14 @@ cf = ones(length(wl), length(pl));
 cv = ones(length(dl), length(pl));
 
 % Configure plot
-colors = {'#0072BD','#D95319','#EDB120','#7E2F8E','#77AC30','#4DBEEE','#A2142F'};
+%colors = {'#0072BD','#D95319','#EDB120','#7E2F8E','#77AC30','#4DBEEE','#A2142F'};
+co = [0 0.4470 0.7410;
+    0.85 0.3250 0.098;
+    0.9290 0.6940 0.1250;
+    0.4940 0.1840 0.5560;
+    0.4660 0.6740 0.1880;
+    0.6350 0.0780 0.1840;
+    0.3010 0.7450 0.9330];
 figure();
 yyaxis right;
 legend;
@@ -28,12 +35,15 @@ a.XLabel.String = 'W/P';
 a.YLim = [0 dl(end)];
 a.YLabel.String = 'W/A';
 a.LineStyleOrder = '-';
+%function 'colororder' só para matlab 2019b para cima
 %colororder(colors)
+set(a, 'ColorOrder',co)
 yyaxis left;
 a.YLim = [0 wl(end)];
 a.YLabel.String = 'W/S';
 a.LineStyleOrder = '-';
 %colororder(colors)
+set(a, 'ColorOrder',co)
 
 k = k_parameter(vehicle);
 
