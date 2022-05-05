@@ -1,11 +1,19 @@
-% Aircraft design tool
+%% Aircraft design tool
 %
 % Mario Bras (mbras@uvic.ca) and Ricardo Marques (ricardoemarques@uvic.ca) 2019
 %
 % This file is subject to the license terms in the LICENSE file included in this distribution
-
+%% Notes:
+%
+% Edited by José Medeiro during May 2022:
+% * Patch 1.1 (05/05/2022):
+% - Comments & Dialog
+%
+%% Main function
 function vehicle = design_space_analysis(mission, vehicle, energy)
 global constants;
+
+inside_constrains = [1, 1];
 
 wl = 0:5:2000;
 dl = 0:5:10000;
@@ -17,13 +25,13 @@ cv = ones(length(dl), length(pl));
 
 % Configure plot
 %colors = {'#0072BD','#D95319','#EDB120','#7E2F8E','#77AC30','#4DBEEE','#A2142F'};
-co = [0 0.4470 0.7410;
-    0.85 0.3250 0.098;
-    0.9290 0.6940 0.1250;
-    0.4940 0.1840 0.5560;
-    0.4660 0.6740 0.1880;
-    0.6350 0.0780 0.1840;
-    0.3010 0.7450 0.9330];
+co =    [0      0.4470 0.7410;
+         0.85   0.3250 0.098;
+         0.9290 0.6940 0.1250;
+         0.4940 0.1840 0.5560;
+         0.4660 0.6740 0.1880;
+         0.6350 0.0780 0.1840;
+         0.3010 0.7450 0.9330];
 figure();
 yyaxis right;
 legend;
@@ -47,7 +55,7 @@ set(a, 'ColorOrder',co)
 
 k = k_parameter(vehicle);
 
-% Get design wing loading, disk loading and power loading
+% Get design wing loading, disk loading and power loading   <- DESIGN POINT
 c = find_by_type(vehicle.components, 'wing.main');
 wl_design = vehicle.mass * constants.g / c.area_ref;
 
@@ -57,7 +65,7 @@ dl_design = vehicle.mass * constants.g / rotor_area(c);
 fpl_design = 0;
 vpl_design = 0;
 
-% Iterate over horizontal flight mission segments
+% Iterate over horizontal flight mission segments           <- CONSTRAINS
 yyaxis left;
 forward_region = cf;
 vertical_region = cv;
@@ -155,7 +163,23 @@ scatter(fpl_design, wl_design, 'filled', 'MarkerEdgeColor', '#0072BD', 'MarkerFa
 yyaxis right;
 scatter(vpl_design, dl_design, 'filled', 'MarkerEdgeColor', '#D95319', 'MarkerFaceColor', '#D95319', 'DisplayName', 'Vertical Flight Design Point');
 
-% Helper functions
+% Dialog
+fprintf('\n<strong>Design Point</strong>\n');
+fprintf('Forward Flight Design Point is ');
+if(inside_constrains(1) == 1)
+    fprintf('<strong>OK</strong>\n');
+else
+    fprintf(2, '<strong>Not OK</strong>\n');
+end
+fprintf('Vertical Flight Design Point is ');
+if(inside_constrains(2) == 1)
+    fprintf('<strong>OK</strong>\n');
+else
+    fprintf(2, '<strong>Not OK</strong>\n');
+end
+
+
+%% Helper functions
 function [constraint, region, power] = hover(plv_grid, dl_grid, dl, segment, vehicle, energy)
 network = find_network_components(vehicle, find_by_name(energy.networks, segment.energy_network));
 engine = find_by_type(network, 'engine');
