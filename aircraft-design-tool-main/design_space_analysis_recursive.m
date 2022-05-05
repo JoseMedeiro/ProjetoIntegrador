@@ -4,18 +4,19 @@
 %
 % This file is subject to the license terms in the LICENSE file included in this distribution
 %% Notes:
-%
+% Heavily edited, intended for natural selection process!
 % Edited by José Medeiro during May 2022:
 % * Patch 1.1 (05/05/2022):
-% - Comments & Dialog
+% - Comments & Constraints update
 %
 %% Main function
-function vehicle = design_space_analysis(mission, vehicle, energy)
+function results = design_space_analysis_recursive(mission, vehicle, energy)
 global constants;
 
-inside_constraints  = [1    , 1     ];
+%% Checkers
+inside_constrains   = [1    , 1     ];
 maximum_values      = [0.5  , 0.5   ];
-
+%% Starting space
 wl = 0:5:2000;
 dl = 0:5:10000;
 pl = 0:0.0005:0.5;
@@ -24,7 +25,7 @@ pl = 0:0.0005:0.5;
 cf = ones(length(wl), length(pl));
 cv = ones(length(dl), length(pl));
 
-% Configure plot
+%% Configure plot
 %colors = {'#0072BD','#D95319','#EDB120','#7E2F8E','#77AC30','#4DBEEE','#A2142F'};
 co =    [0      0.4470 0.7410;
          0.85   0.3250 0.098;
@@ -56,7 +57,7 @@ set(a, 'ColorOrder',co)
 
 k = k_parameter(vehicle);
 
-% Get design wing loading, disk loading and power loading   <- DESIGN POINT
+%% Get design wing loading, disk loading and power loading   <- DESIGN POINT
 c = find_by_type(vehicle.components, 'wing.main');
 wl_design   = vehicle.mass * constants.g / c.area_ref;
 wl_position = find(abs(wl - wl_design) < 2.5);
@@ -68,6 +69,7 @@ dl_position = find(abs(dl - dl_design) < 2.5);
 fpl_design = 0;
 vpl_design = 0;
 
+%% Iterate over horizontal flight mission segments           <- CONSTRAINS
 % Iterate over horizontal flight mission segments           <- CONSTRAINS
 yyaxis left;
 forward_region = cf;
@@ -76,8 +78,6 @@ for i = 1 : length(mission.segments)
     % Climb segment
     if strcmp(mission.segments{i}.type, 'climb')
         [constraint, forward_region, power] = climb(plf_grid, wl_grid, wl, k, mission.segments{i}, vehicle, energy);
-        yyaxis left;
-        plot(constraint, wl, 'DisplayName', strcat(mission.segments{i}.name, ": climb constraint"));
 
         % Updates FW/P
         fpl = vehicle.mass * constants.g / power;
@@ -92,9 +92,6 @@ for i = 1 : length(mission.segments)
     % Cruise segment
     elseif strcmp(mission.segments{i}.type, 'cruise')
         [range_constraint, cruise_speed_constraint, forward_region, power] = cruise(plf_grid, wl_grid, wl, k, mission.segments{i}, vehicle, energy);
-        yyaxis left;
-        plot([pl(1) pl(end)], [range_constraint range_constraint], 'DisplayName', strcat(mission.segments{i}.name, ": range constraint"));
-        plot(cruise_speed_constraint, wl, 'DisplayName', strcat(mission.segments{i}.name, ": cruise speed constraint"));
         
         % Updates FW/P
         fpl = vehicle.mass * constants.g / power;
@@ -109,9 +106,7 @@ for i = 1 : length(mission.segments)
     % Hold segment
     elseif strcmp(mission.segments{i}.type, 'hold')
         [constraint, forward_region, power] = loiter(wl_grid, k, mission.segments{i}, vehicle, energy);
-        yyaxis left;
-        plot([pl(1) pl(end)], [constraint constraint], 'DisplayName', strcat(mission.segments{i}.name, ": endurance constraint"));
-        
+
         % Updates FW/P
         fpl = vehicle.mass * constants.g / power;
         if fpl > fpl_design
@@ -129,8 +124,6 @@ for i = 1 : length(mission.segments)
         end
     elseif strcmp(mission.segments{i}.type, 'hover') % Hover segment
         [constraint, vertical_region, power] = hover(plv_grid, dl_grid, dl, mission.segments{i}, vehicle, energy);
-        yyaxis right;
-        plot(constraint, dl, 'DisplayName', strcat(mission.segments{i}.name, ": hover constraint"));
         
         % Updates VW/P
         vpl = vehicle.mass * constants.g / power;
@@ -144,8 +137,7 @@ for i = 1 : length(mission.segments)
         end
     elseif strcmp(mission.segments{i}.type, 'transition') % Transition segment
         [constraint, vertical_region, power] = transition(plv_grid, dl_grid, wl_design, dl, k, mission.segments{i}, mission.segments{i+1}, vehicle, energy);
-        yyaxis right;
-        plot(constraint, dl, 'DisplayName', strcat(mission.segments{i}.name, ": transition constraint"));
+
         % Updates VW/P
         vpl = vehicle.mass * constants.g / power;
         if vpl > vpl_design
@@ -158,8 +150,7 @@ for i = 1 : length(mission.segments)
         end
     elseif strcmp(mission.segments{i}.type, 'vertical_climb') % Vertical climb segment
         [constraint, vertical_region, power] = vertical_climb(plv_grid, dl_grid, dl, mission.segments{i}, vehicle, energy);
-        yyaxis right;
-        plot(constraint, dl, 'DisplayName', strcat(mission.segments{i}.name, ": vertical climb constraint"));
+
         % Updates VW/P
         vpl = vehicle.mass * constants.g / power;
         if vpl > vpl_design
@@ -192,36 +183,12 @@ for i = 1 : length(mission.segments)
     end
 end
 
-% Plot feasible design region
-cf(~cf) = NaN;
-yyaxis left;
-surf(pl, wl, cf, 'FaceAlpha', 0.2, 'FaceColor', '#0072BD', 'EdgeColor', 'none', 'DisplayName', 'Forward Flight Design Space');
-cv(~cv) = NaN;
-yyaxis right;
-surf(pl, dl, cv, 'FaceAlpha', 0.2, 'FaceColor', '#D95319', 'EdgeColor', 'none', 'DisplayName', 'Vertical Flight Design Space');
-
-% Plot design point
-yyaxis left;
-scatter(fpl_design, wl_design, 'filled', 'MarkerEdgeColor', '#0072BD', 'MarkerFaceColor', '#0072BD', 'DisplayName', 'Forward Flight Design Point');
-yyaxis right;
-scatter(vpl_design, dl_design, 'filled', 'MarkerEdgeColor', '#D95319', 'MarkerFaceColor', '#D95319', 'DisplayName', 'Vertical Flight Design Point');
-
-% Dialog
-fprintf('\n<strong>Design Point</strong>\n');
-fprintf('Forward Flight Design Point is  ');
-if(inside_constraints(1) == 1)
-    fprintf('<strong>OK</strong>\n');
+%% Results
+if (inside_constraints(1)*inside_constraints(2) == 0)
+    results = [-1, -1];
 else
-    fprintf(2, '<strong>Not OK</strong>\n');
+    results = fpl_design + [wl_design, dl_design];
 end
-fprintf('Vertical Flight Design Point is ');
-if(inside_constraints(2) == 1)
-    fprintf('<strong>OK</strong>\n');
-else
-    fprintf(2, '<strong>Not OK</strong>\n');
-end
-
-
 %% Helper functions
 function [constraint, region, power] = hover(plv_grid, dl_grid, dl, segment, vehicle, energy)
 network = find_network_components(vehicle, find_by_name(energy.networks, segment.energy_network));
