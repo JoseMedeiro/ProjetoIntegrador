@@ -13,7 +13,6 @@ data = load_project(filename);
 population(1) = data;
 %% Add missing mission segment common throughout all of the species
 data.mission = build_mission(data.mission);
-
 %% First creation
 
 for c=2:SIZE_POP

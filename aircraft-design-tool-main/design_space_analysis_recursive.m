@@ -70,7 +70,6 @@ fpl_design = 0;
 vpl_design = 0;
 
 %% Iterate over horizontal flight mission segments           <- CONSTRAINS
-% Iterate over horizontal flight mission segments           <- CONSTRAINS
 yyaxis left;
 forward_region = cf;
 vertical_region = cv;
