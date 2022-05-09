@@ -5,9 +5,11 @@ adt('examples/project_mission1final.json')
 
 %% Mission things, I guess
 
-
-
-
+%
+%   aircraft = natural_selection_design('examples/project_mission1final.json')
+%   save_project(aircraft,'examples/better_mission_1.json');
+%   adt('examples/better_mission_1.json');
+%
 
 
 

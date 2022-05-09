@@ -13,8 +13,9 @@
 function vehicle = design_space_analysis(mission, vehicle, energy)
 global constants;
 
-inside_constraints  = [1    , 1     ];
-maximum_values      = [0.5  , 0.5   ];
+inside_constraints  = [ 1   , 1     ];
+maximum_values      = [ 0.5  , 0.5  ;...
+                        2000 , 10000];
 
 wl = 0:5:2000;
 dl = 0:5:10000;
@@ -57,12 +58,13 @@ set(a, 'ColorOrder',co)
 k = k_parameter(vehicle);
 
 % Get design wing loading, disk loading and power loading   <- DESIGN POINT
-c = find_by_type(vehicle.components, 'wing.main');
-wl_design   = vehicle.mass * constants.g / c.area_ref;
+c_1 = find_by_type(vehicle.components, 'wing.main');
+c_2 = find_by_type(vehicle.components, 'wing.htail');
+wl_design   = vehicle.mass * constants.g / (c_1.area_ref + c_2.area_ref);
 wl_position = find(abs(wl - wl_design) < 2.5);
 
-c = find_by_type(vehicle.components, 'driver.rotor.main');
-dl_design = vehicle.mass * constants.g / rotor_area(c);
+c_1 = find_by_type(vehicle.components, 'driver.rotor.main');
+dl_design = vehicle.mass * constants.g / rotor_area(c_1);
 dl_position = find(abs(dl - dl_design) < 2.5);
 
 fpl_design = 0;
@@ -75,36 +77,48 @@ vertical_region = cv;
 for i = 1 : length(mission.segments)
     % Climb segment
     if strcmp(mission.segments{i}.type, 'climb')
-        [constraint, forward_region, power] = climb(plf_grid, wl_grid, wl, k, mission.segments{i}, vehicle, energy);
+        [constraint, stall, forward_region, power] = climb(plf_grid, wl_grid, wl, k, mission.segments{i}, vehicle, energy);
         yyaxis left;
         plot(constraint, wl, 'DisplayName', strcat(mission.segments{i}.name, ": climb constraint"));
-
-        % Updates FW/P
-        fpl = vehicle.mass * constants.g / power;
-        if fpl > fpl_design
-            fpl_design = fpl;
-        end
-        % Updates maximum W/P
-        max_wp  = constraint(wl_position);
-        if maximum_values(1) > max_wp
-            maximum_values(1) = max_wp;
-        end
-    % Cruise segment
-    elseif strcmp(mission.segments{i}.type, 'cruise')
-        [range_constraint, cruise_speed_constraint, forward_region, power] = cruise(plf_grid, wl_grid, wl, k, mission.segments{i}, vehicle, energy);
-        yyaxis left;
-        plot([pl(1) pl(end)], [range_constraint range_constraint], 'DisplayName', strcat(mission.segments{i}.name, ": range constraint"));
-        plot(cruise_speed_constraint, wl, 'DisplayName', strcat(mission.segments{i}.name, ": cruise speed constraint"));
+        plot([pl(1) pl(end)], [stall stall], 'DisplayName', strcat(mission.segments{i}.name, ": stall constraint"));
         
         % Updates FW/P
         fpl = vehicle.mass * constants.g / power;
         if fpl > fpl_design
             fpl_design = fpl;
         end
-        % Updates maximum W/P
+        % Updates maximum FW/P
         max_wp  = constraint(wl_position);
-        if maximum_values(1) > max_wp
-            maximum_values(1) = max_wp;
+        if maximum_values(1,1) > max_wp
+            maximum_values(1,1) = max_wp;
+        end
+        % Updates maximum W/S
+        max_ws  = stall;
+        if maximum_values(2,1) > max_ws
+            maximum_values(2,1) = max_ws;
+        end
+    % Cruise segment
+    elseif strcmp(mission.segments{i}.type, 'cruise')
+        [range_constraint, cruise_speed_constraint, stall, forward_region, power] = cruise(plf_grid, wl_grid, wl, k, mission.segments{i}, vehicle, energy);
+        yyaxis left;
+        plot([pl(1) pl(end)], [range_constraint range_constraint], 'DisplayName', strcat(mission.segments{i}.name, ": range constraint"));
+        plot(cruise_speed_constraint, wl, 'DisplayName', strcat(mission.segments{i}.name, ": cruise speed constraint"));
+        plot([pl(1) pl(end)], [stall stall], 'DisplayName', strcat(mission.segments{i}.name, ": stall constraint"));
+        
+        % Updates FW/P
+        fpl = vehicle.mass * constants.g / power;
+        if fpl > fpl_design
+            fpl_design = fpl;
+        end
+        % Updates maximum FW/P
+        max_wp  = cruise_speed_constraint(wl_position);
+        if maximum_values(1,1) > max_wp
+            maximum_values(1,1) = max_wp;
+        end
+        % Updates maximum W/S
+        max_ws  = min([stall, range_constraint]);
+        if maximum_values(2,1) > max_ws
+            maximum_values(2,1) = max_ws;
         end
     % Hold segment
     elseif strcmp(mission.segments{i}.type, 'hold')
@@ -137,10 +151,10 @@ for i = 1 : length(mission.segments)
         if vpl > vpl_design
             vpl_design = vpl;
         end
-        % Updates maximum D/P
+        % Updates maximum VW/P
         max_dp  = constraint(dl_position);
-        if maximum_values(2) > max_dp
-            maximum_values(2) = max_dp;
+        if maximum_values(1,2) > max_dp
+            maximum_values(1,2) = max_dp;
         end
     elseif strcmp(mission.segments{i}.type, 'transition') % Transition segment
         [constraint, vertical_region, power] = transition(plv_grid, dl_grid, wl_design, dl, k, mission.segments{i}, mission.segments{i+1}, vehicle, energy);
@@ -153,8 +167,8 @@ for i = 1 : length(mission.segments)
         end
         % Updates maximum D/P
         max_dp  = constraint(dl_position);
-        if maximum_values(2) > max_dp
-            maximum_values(2) = max_dp;
+        if maximum_values(1,2) > max_dp
+            maximum_values(1,2) = max_dp;
         end
     elseif strcmp(mission.segments{i}.type, 'vertical_climb') % Vertical climb segment
         [constraint, vertical_region, power] = vertical_climb(plv_grid, dl_grid, dl, mission.segments{i}, vehicle, energy);
@@ -165,10 +179,10 @@ for i = 1 : length(mission.segments)
         if vpl > vpl_design
             vpl_design = vpl;
         end
-        % Updates maximum D/P
+        % Updates maximum VW/P
         max_dp  = constraint(dl_position);
-        if maximum_values(2) > max_dp
-            maximum_values(2) = max_dp;
+        if maximum_values(1,2) > max_dp
+            maximum_values(1,2) = max_dp;
         end
     elseif strcmp(mission.segments{i}.type, 'vertical_descent') % Vertical descent segment
         network = find_network_components(vehicle, find_by_name(energy.networks, mission.segments{i}.energy_network));
@@ -184,10 +198,10 @@ for i = 1 : length(mission.segments)
     cf = cf .* forward_region;
     cv = cv .* vertical_region;
     
-    if(maximum_values(1) < fpl_design)
+    if(maximum_values(1,1) < fpl_design || maximum_values(2,1) < wl_design)
         inside_constraints(1) = 0;
     end
-    if(maximum_values(2) < fpl_design)
+    if(maximum_values(1,2) < fpl_design || maximum_values(2,2) < dl_design)
         inside_constraints(2) = 0;
     end
 end
@@ -250,10 +264,14 @@ constraint = vertical_climb_constraint(dl, segment.density(1), rotor.tip_velocit
 region = vertical_climb_region(plv_grid, dl_grid, segment.density(1), rotor.tip_velocity, rotor.rotor_solidity, rotor.base_drag_coefficient, rotor.induced_power_factor, segment.velocity);
 
 power = network_max_power(network);
-
-function [constraint, region, power] = climb(plf_grid, wl_grid, wl, k, segment, vehicle, energy)
+%
+% Added stall constrain
+%
+function [constraint, stall, region, power] = climb(plf_grid, wl_grid, wl, k, segment, vehicle, energy)
 network = find_network_components(vehicle, find_by_name(energy.networks, segment.energy_network));
 engine = find_by_type(network, 'engine');
+wing_main = find_by_type(vehicle.components,'wing.main');
+wing_horz = find_by_type(vehicle.components,'wing.htail');
 [segment_props, ~] = find_by_name(vehicle.segments, segment.name);
 
 if is_type(engine, 'engine.jet')
@@ -264,13 +282,20 @@ elseif is_type(engine, 'engine.prop')
     constraint = climb_constraint_prop(wl, segment.density(1), segment.velocity, segment_props.base_drag_coefficient, k, segment.angle, prop.efficiency);
     region = climb_region_prop(plf_grid, wl_grid, segment.density(1), segment.velocity, segment_props.base_drag_coefficient, k, segment.angle, prop.efficiency);
 end
+stall   = stall_speed_constraint(segment.density(1),segment.velocity,wing_main.airfoil.cl_max + wing_horz.airfoil.cl_max*(wing_main.area_ref/wing_horz.area_ref));
+stall_region  = stall_speed_region(wl_grid, segment.density(1),segment.velocity, wing_main.airfoil.cl_max+wing_horz.airfoil.cl_max*(wing_main.area_ref/wing_horz.area_ref));
 
-power = network_max_power(network);
-
-function [range_constraint, cruise_speed_constraint, region, power] = cruise(plf_grid, wl_grid, wl, k, segment, vehicle, energy)
+region = region .* stall_region;
+power   = network_max_power(network);
+%
+% Added stall constrain
+%
+function [range_constraint, cruise_speed_constraint, stall, region, power] = cruise(plf_grid, wl_grid, wl, k, segment, vehicle, energy)
 network = find_network_components(vehicle, find_by_name(energy.networks, segment.energy_network));
 engine = find_by_type(network, 'engine');
 [segment_props, ~] = find_by_name(vehicle.segments, segment.name);
+wing_main = find_by_type(vehicle.components,'wing.main');
+wing_horz = find_by_type(vehicle.components,'wing.htail');
 
 if is_type(engine, 'engine.jet')
     range_constraint = range_constraint_jet(segment.density, segment.velocity, segment_props.base_drag_coefficient, k);
@@ -286,9 +311,10 @@ elseif is_type(engine, 'engine.prop')
     cruise_speed_constraint = cruise_speed_constraint_prop(wl, segment.density, segment.velocity, segment_props.base_drag_coefficient, k, prop.efficiency);
     cruise_speed_region = cruise_speed_region_prop(plf_grid, wl_grid, segment.density, segment.velocity, segment_props.base_drag_coefficient, k, prop.efficiency);
 end
+stall   = stall_speed_constraint(segment.density(1),segment.velocity,wing_main.airfoil.cl_max + wing_horz.airfoil.cl_max*(wing_main.area_ref/wing_horz.area_ref));
+stall_region  = stall_speed_region(wl_grid, segment.density(1),segment.velocity,wing_main.airfoil.cl_max+wing_horz.airfoil.cl_max*(wing_main.area_ref/wing_horz.area_ref));
 
-region = range_region .* cruise_speed_region;
-
+region = range_region .* cruise_speed_region .*stall_region;
 power = network_max_power(network);
 
 function [constraint, region, power] = loiter(wl_grid, k, segment, vehicle, energy)
@@ -395,7 +421,7 @@ function wl = endurance_constraint_prop(rho, v, cd_0, k)
 wl = 0.5 * rho * v^2 * sqrt(3 * cd_0 / k);
 
 function wl = stall_speed_constraint(rho, v_s, c_lmax)
-wl = 0.5 * rho * v_s^2 * c_lmax;
+wl = 0.5 * rho * 0.2* v_s^2 * c_lmax;
 
 function ptl = cruise_speed_constraint_jet(wl, rho, v, cd_0, k)
 ptl = 1 ./ (rho .* v.^2 .* cd_0 ./ 2 ./ wl + 2 .* k .* wl ./ rho ./ v.^2);
@@ -438,8 +464,8 @@ c = wl < 0.5 * rho * v^2 * sqrt(cd_0 / k);
 function c = endurance_region_prop(wl, rho, v, cd_0, k)
 c = wl < 0.5 * rho * v^2 * sqrt(3 * cd_0 / k);
 
-function c = stall_speed_region(rho, v_s, c_lmax)
-c = wl < 0.5 * rho * v_s^2 * c_lmax;
+function c = stall_speed_region(wl, rho, v_s, c_lmax)
+c = wl < 0.5 * rho * 0.2* v_s^2 * c_lmax;
 
 function c = cruise_speed_region_jet(pl, wl, rho, v, cd_0, k)
 c = pl < 1 ./ (rho .* v.^2 .* cd_0 ./ 2 ./ wl + 2 .* k .* wl ./ rho ./ v.^2);

@@ -1,4 +1,4 @@
-function data = natural_selection_design(filename, varargin)
+function data = natural_selection_design(filename)
 %% Constants
 global constants;
 constants.g = 9.81; % m/s^2
