@@ -10,7 +10,7 @@
 % - Comments & Constraints update
 %
 %% Main function
-function value = design_space_analysis(mission, vehicle, energy)
+function value = design_space_analysis_recursive(mission, vehicle, energy)
 global constants;
 
 inside_constraints  = [ 1   , 1     ];
@@ -164,7 +164,7 @@ for i = 1 : length(mission.segments)
     end
 end
 if ~any(~inside_constraints,'all')
-    value = wl_design;
+    value = wl_design + fpl_design*(wl(end)/pl(end));
 else
     value = 0;
 end

@@ -2,10 +2,10 @@ function data = natural_selection_design(filename)
 %% Constants
 global constants;
 constants.g = 9.81; % m/s^2
-MAX_GEN                     = 10;
+MAX_GEN                     = 20;
 MAX_GEN_WITHOUT_IMPROVEMENT = 5;
-SIZE_POP                    = 100;
-BEST_BOYS                   = 10;
+SIZE_POP                    = 50;
+BEST_BOYS                   = 5;
 SONS                        = (SIZE_POP-BEST_BOYS)/BEST_BOYS;
 conter_MGWI = 0;
 %% Load project file (will be first pick)
@@ -17,6 +17,7 @@ data.mission = build_mission(data.mission);
 
 for c=2:SIZE_POP
     population(c) = scramble_aircraft(data);
+    fprintf("%d planes made.\n",c);
 end
 
 for c=0:MAX_GEN
@@ -30,10 +31,11 @@ for c=0:MAX_GEN
     end
     %% Rates them
     for d=1:size(population,2)
-        data(d) = gets_rating_design(population(d));
+        results(d) = gets_rating_design(population(d));
+        fprintf("%d planes rated - %f.\n",d,results(d));
     end
     %% Sorts
-    [~,I] = sort(data, 'descend');
+    [~,I] = sort(results, 'descend');
     population = population(I);    
     %% Verifies Conditions
     if I(1) == 1
@@ -44,6 +46,7 @@ for c=0:MAX_GEN
     if conter_MGWI >= MAX_GEN_WITHOUT_IMPROVEMENT
        break; 
     end
+    fprintf("%d gen.\n",c);
 end
 
 data = population(1);

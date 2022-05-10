@@ -350,7 +350,7 @@
                 "efficiency": 0.8,
                 "mass": 100,
                 "brake_specific_fuel_consumption": 4.25e-5, 
-                "max_power": 210000
+                "max_power": 550000
             },
             {
                 "name": "Battery",
@@ -371,7 +371,7 @@
                 "type": "driver.rotor.main",
                 "number": 4,
                 "number_blades": 3,
-                "radius": 5,
+                "radius": 3,
                 "rotor_solidity": 0.08,
                 "induced_power_factor": 1.15,
                 "base_drag_coefficient": 0.02,

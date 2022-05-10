@@ -2,6 +2,7 @@ function data = scramble_aircraft(aircraft)
 %% Constants
 global constants;
 constants.g = 9.81; % m/s^2
+REL_ADVANCEMENT             = 0.10;
 frame = aircraft.vehicle.components;
 for i = 1 : length(frame)
     %% Crew
@@ -30,11 +31,11 @@ for i = 1 : length(frame)
     %     "length": 6,
     %     "mass": 800
     % },
-    if(is_type(frame{i}.type,'fuselage'))
+    if(is_type(frame{i},'fuselage'))
         % Diameter of the fuselage
         lim = [1.75, 2.5];
         while 1
-            a = frame{i}.diameter*surprise(lim_2(1)-lim_2(2), 0.1);
+            a = frame{i}.diameter*surprise((lim(1)-lim(2))/frame{i}.diameter, REL_ADVANCEMENT);
             if is_in_limit(lim(1), a,lim(2))
                 frame{i}.diameter = a;
                 break;
@@ -43,7 +44,7 @@ for i = 1 : length(frame)
         % Length of the fuselage
         lim = [9, 12];
         while 1
-            a = frame{i}.length*surprise(lim_2(1)-lim_2(2), 0.1);
+            a = frame{i}.length*surprise((lim(1)-lim(2))/frame{i}.length, REL_ADVANCEMENT);
             if is_in_limit(lim(1), a,lim(2))
                 frame{i}.length = a;
                 break;
@@ -70,7 +71,7 @@ for i = 1 : length(frame)
     %     "sweep_tc_max": 20.0,
     %     "mass": 200
     % },
-    elseif(is_type(frame{i}.type,'wing.main'))
+    elseif(is_type(frame{i},'wing.main'))
         % Aspect ratio & chord
         lim_1 = [5  , 8 ];
         lim_2 = [2  , 3 ];
@@ -78,7 +79,7 @@ for i = 1 : length(frame)
         while 1
             % Aspect ratio
             while 1
-                a = frame{i}.aspect_ratio*surprise(lim_2(1)-lim_2(2), 0.1);
+                a = frame{i}.aspect_ratio*surprise((lim_1(1)-lim_1(2))/frame{i}.aspect_ratio, REL_ADVANCEMENT);
                 if is_in_limit(lim_1(1), a, lim_1(2))
                     frame{i}.aspect_ratio = a;
                     break;
@@ -86,7 +87,7 @@ for i = 1 : length(frame)
             end
             % mean chord
             while 1
-                a = frame{i}.mean_chord*surprise(lim_2(1)-lim_2(2), 0.1);
+                a = frame{i}.mean_chord*surprise((lim_2(1)-lim_2(2))/frame{i}.mean_chord, REL_ADVANCEMENT);
                 if is_in_limit(lim_2(1), a, lim_2(2))
                     frame{i}.mean_chord = a;
                     break;
@@ -118,7 +119,7 @@ for i = 1 : length(frame)
     %     "sweep_tc_max": 20.0,
     %     "mass": 200
     % },
-    elseif(is_type(frame{i}.type,'wing.htail'))
+    elseif(is_type(frame{i},'wing.htail'))
         % Aspect ratio & chord
         lim_1 = [5  , 8 ];
         lim_2 = [2  , 3 ];
@@ -126,7 +127,7 @@ for i = 1 : length(frame)
         while 1
             % Aspect ratio
             while 1
-                a = frame{i}.aspect_ratio*surprise(lim_2(1)-lim_2(2), 0.1);
+                a = frame{i}.aspect_ratio*surprise((lim_1(1)-lim_1(2))/frame{i}.aspect_ratio, REL_ADVANCEMENT);
                 if is_in_limit(lim_1(1), a, lim_1(2))
                     frame{i}.aspect_ratio = a;
                     break;
@@ -134,7 +135,7 @@ for i = 1 : length(frame)
             end
             % mean chord
             while 1
-                a = frame{i}.mean_chord*surprise(lim_2(1)-lim_2(2), 0.1);
+                a = frame{i}.mean_chord*surprise(lim_2(1)-lim_2(2)/frame{i}.mean_chord, REL_ADVANCEMENT);
                 if is_in_limit(lim_2(1), a, lim_2(2))
                     frame{i}.mean_chord = a;
                     break;
@@ -175,11 +176,11 @@ for i = 1 : length(frame)
     %     "efficiency": 0.6,
     %     "mass": 20
     % },
-    elseif(is_type(frame{i}.type,'driver.rotor.main'))
+    elseif(is_type(frame{i},'driver.rotor.main'))
         % Radius of the rotor
         lim = [3, 4];
         while 1
-            a = frame{i}.radius*surprise(lim_2(1)-lim_2(2), 0.1);
+            a = frame{i}.radius*surprise((lim(1)-lim(2))/frame{i}.radius, REL_ADVANCEMENT);
             if is_in_limit(lim(1), a,lim(2))
                 frame{i}.radius = a;
                 break;
@@ -204,11 +205,11 @@ for i = 1 : length(frame)
     %     "max_power": 550000
     % 
     % }
-    elseif(is_type(frame{i}.type,'engine.prop'))
+    elseif(is_type(frame{i},'engine.prop'))
         % Maximum Power
         lim = [450000, 550000];
         while 1
-            a = frame{i}.max_power*surprise(lim_2(1)-lim_2(2), 0.1);
+            a = frame{i}.max_power*surprise((lim(1)-lim(2))/frame{i}.max_power, REL_ADVANCEMENT);
             if is_in_limit(lim(1), a,lim(2))
                 frame{i}.max_power = a;
                 break;
@@ -231,5 +232,5 @@ end
 
 function c = surprise(delta, range)
 
-c = 1 + delta*2*range(rand - 0.5);
+c = 1 + delta*2*range*(rand - 0.5);
 

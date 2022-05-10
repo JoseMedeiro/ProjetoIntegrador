@@ -4,6 +4,7 @@ global constants;
 constants.g = 9.81; % m/s^2
 
 %% Add missing vehicle component parameters
+aircraft.mission = build_mission(aircraft.mission);
 aircraft.vehicle = build_vehicle(aircraft.mission, aircraft.vehicle);
 
 %% Mission analyses
