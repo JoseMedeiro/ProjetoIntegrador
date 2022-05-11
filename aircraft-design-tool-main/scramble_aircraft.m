@@ -2,7 +2,7 @@ function data = scramble_aircraft(aircraft)
 %% Constants
 global constants;
 constants.g = 9.81; % m/s^2
-REL_ADVANCEMENT             = 0.10;
+REL_ADVANCEMENT             = 0.05;
 frame = aircraft.vehicle.components;
 for i = 1 : length(frame)
     %% Crew
@@ -207,9 +207,9 @@ for i = 1 : length(frame)
     % }
     elseif(is_type(frame{i},'engine.prop'))
         % Maximum Power
-        lim = [450000, 550000];
+        lim = [400000, 550000];
         while 1
-            a = frame{i}.max_power*surprise((lim(1)-lim(2))/frame{i}.max_power, REL_ADVANCEMENT);
+            a = frame{i}.max_power*surprise((lim(1)-lim(2))/frame{i}.max_power, REL_ADVANCEMENT*2);
             if is_in_limit(lim(1), a,lim(2))
                 frame{i}.max_power = a;
                 break;

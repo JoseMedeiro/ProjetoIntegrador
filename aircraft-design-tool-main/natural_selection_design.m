@@ -2,10 +2,10 @@ function data = natural_selection_design(filename)
 %% Constants
 global constants;
 constants.g = 9.81; % m/s^2
-MAX_GEN                     = 20;
-MAX_GEN_WITHOUT_IMPROVEMENT = 5;
-SIZE_POP                    = 50;
-BEST_BOYS                   = 5;
+MAX_GEN                     = 100;
+MAX_GEN_WITHOUT_IMPROVEMENT = 10;
+SIZE_POP                    = 100;
+BEST_BOYS                   = 10;
 SONS                        = (SIZE_POP-BEST_BOYS)/BEST_BOYS;
 conter_MGWI = 0;
 %% Load project file (will be first pick)
