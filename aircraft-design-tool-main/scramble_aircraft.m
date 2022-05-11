@@ -2,7 +2,7 @@ function data = scramble_aircraft(aircraft)
 %% Constants
 global constants;
 constants.g = 9.81; % m/s^2
-REL_ADVANCEMENT             = 0.05;
+REL_ADVANCEMENT = 0.05;
 frame = aircraft.vehicle.components;
 for i = 1 : length(frame)
     %% Crew
