@@ -1,0 +1,19 @@
+PLOP
+G
+
+load NACA0012.txt
+PPAR
+N 90 
+
+
+OPER
+Visc
+200000
+ITER 200
+PACC
+Save_Airfoil.txt 
+
+aseq
+-3
+15
+0.250000
