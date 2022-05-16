@@ -1,9 +1,9 @@
 PLOP
 G
 
-load NACA0012.txt
+NACA 4412
 PPAR
-N 90 
+N 130 
 
 
 OPER
@@ -16,4 +16,4 @@ Save_Airfoil.txt
 aseq
 -3
 15
-0.250000
+0.100000

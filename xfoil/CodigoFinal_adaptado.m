@@ -6,16 +6,23 @@
 % Mariana Toco Dias
 % Nuno Matos
 
+close all
+clear all
+
 % Variaveis iniciais
 iname = "input.txt"; 
-perfil = "NACA0012.txt";
-perfilName = "NACA0012";
+
+%Onde colocar o perfil a ser estudado!!!
+perfil = "NACA4412.txt";
+perfilName = "NACA 4412";
+
+
 saveFlnmAF = 'Save_Airfoil.txt';
 pastaFigs = '\figsMatlab\';
-NPanels = 90;
+NPanels = 130;
 firstAoA = -3;
 lastAoA = 15;
-stepAoA = 0.25;
+stepAoA = 0.1;
 
 %% escrever o ficheiro
 
@@ -31,7 +38,9 @@ fid = fopen(iname,'w'); %criar ficheiro de input
 fprintf(fid,"PLOP\n"); %abrir op√ß√µes dos gr√°ficos
 fprintf(fid,"G\n\n"); %impedir a sua cria√ß√£o
 
-fprintf(fid,"load %s\n",perfil); % carregar o ficheiro de perfil
+%fprintf(fid,"load %s\n",perfil); % carregar o ficheiro de perfil
+
+fprintf(fid,"%s\n",perfilName);
 fprintf(fid,'PPAR\n'); %repaneling
 fprintf(fid,"N %i \n", NPanels); %n√∫mero de paineis
 fprintf(fid,'\n\n');
@@ -39,8 +48,14 @@ fprintf(fid,'\n\n');
 % opera√ß√µes
 fprintf(fid,'OPER\n'); %iniciar opera√ß√µes
 fprintf(fid,'Visc\n'); %mudar para modo viscoso
-fprintf(fid,'200000\n'); %impor reinolds
+
+% ALTERAR REYNOLDS PARA ALGO QUE FA«A SENTIDO ¿ NOSSA AERONAVE
+fprintf(fid,'200000\n'); 
+
 fprintf(fid,'ITER 200\n'); %aumentar itera√ß√µes m√°ximas
+
+%comando seqp - faz plot do cl em funÁ„o de mts coisas
+%fprintf(fid,'seqp\n');
 
 fprintf(fid,'PACC\n'); %ativar grava√ß√£o
 fprintf(fid,"%s \n\n", saveFlnmAF); %nome do ficheiro de grava√ß√£o
@@ -79,9 +94,10 @@ plot(alfa, cl);
 grid on;
 xlabel('alfa');
 ylabel('C_l');
-t = strcat('C_l(alfa)-',perfilName);
+t = strcat(perfilName,' - C_l(alfa)');
 title(t);
 saveas(img1, fullfile([strcat(pwd, pastaFigs, t)]), 'jpg');
+saveas(img1, fullfile([strcat(pwd, pastaFigs, t)]), 'fig');
 
 %plot cl em funÁ„o de cd
 img2 = figure;
@@ -89,9 +105,10 @@ plot(cd, cl);
 grid on;
 xlabel('C_d');
 ylabel('C_l');
-t = strcat('C_l(C_d) - ',perfilName);
+t = strcat(perfilName, ' - C_l(C_d)');
 title(t);
 saveas(img2, fullfile([strcat(pwd, pastaFigs, t)]), 'jpg');
+saveas(img2, fullfile([strcat(pwd, pastaFigs, t)]), 'fig');
 
 %plot cl/cd em funÁ„o de cl
 ClCd = cl./cd;
@@ -100,19 +117,22 @@ plot(cl, ClCd);
 grid on;
 xlabel('C_l');
 ylabel('C_l/C_d');
-t = strcat('C_l-C_d (C_d) - ',perfilName);
+t = strcat(perfilName, ' - C_l-C_d (C_d)');
 title(t);
 saveas(img3, fullfile([strcat(pwd, pastaFigs, t)]), 'jpg');
+saveas(img3, fullfile([strcat(pwd, pastaFigs, t)]), 'fig');
 
 %plot cm em funÁ„o de alfa
+%VER EM QUE SENTIDO XFOIL D¡ O CM
 img4 = figure;
 plot(alfa, cm);
 grid on;
 xlabel('alfa');
 ylabel('C_m');
-t = strcat('C_m (alfa) - ',perfilName);
+t = strcat(perfilName, ' - C_m (alfa)');
 title(t);
 saveas(img4, fullfile([strcat(pwd, pastaFigs, t)]), 'jpg');
+saveas(img4, fullfile([strcat(pwd, pastaFigs, t)]), 'fig');
 
 
 
