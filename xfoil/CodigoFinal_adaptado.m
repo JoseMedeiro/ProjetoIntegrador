@@ -14,14 +14,14 @@ iname = "input.txt";
 
 %Onde colocar o perfil a ser estudado!!!
 perfil = "NACA4412.txt";
-perfilName = "NACA 0012";
+perfilName = "NACA 0006";
 
 
 saveFlnmAF = 'Save_Airfoil.txt';
 pastaFigs = '\figsMatlab\';
 NPanels = 130;
 firstAoA = -3;
-lastAoA = 15;
+lastAoA = 30;
 stepAoA = 0.1;
 
 % Variáveis do Perfil
