@@ -14,7 +14,7 @@ iname = "input.txt";
 
 %Onde colocar o perfil a ser estudado!!!
 perfil = "NACA4412.txt";
-perfilName = "NACA 0006";
+perfilName = "NACA 0024";
 
 
 saveFlnmAF = 'Save_Airfoil.txt';
