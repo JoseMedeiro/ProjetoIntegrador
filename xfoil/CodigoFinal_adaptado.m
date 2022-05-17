@@ -14,7 +14,7 @@ iname = "input.txt";
 
 %Onde colocar o perfil a ser estudado!!!
 perfil = "NACA4412.txt";
-perfilName = "NACA 4412";
+perfilName = "NACA 0012";
 
 
 saveFlnmAF = 'Save_Airfoil.txt';
@@ -23,6 +23,29 @@ NPanels = 130;
 firstAoA = -3;
 lastAoA = 15;
 stepAoA = 0.1;
+
+% Vari·veis do Perfil
+
+chord = 2;
+pho = 1.1;
+vel = 100;
+mu = 17.54e-6;
+
+weight = 6300;
+area1 = 22.8;
+area2 = 22.4;
+
+% N˙mero de Reynolds
+Re = (pho*chord*vel)/mu
+
+% C_L da aeronave
+cLGrande = weight/(0.5*pho*(vel^2)*(area1+area2))
+
+clpequeno = 0.9*cLGrande
+
+
+
+
 
 %% escrever o ficheiro
 
@@ -50,7 +73,7 @@ fprintf(fid,'OPER\n'); %iniciar opera√ß√µes
 fprintf(fid,'Visc\n'); %mudar para modo viscoso
 
 % ALTERAR REYNOLDS PARA ALGO QUE FA«A SENTIDO ¿ NOSSA AERONAVE
-fprintf(fid,'200000\n'); 
+fprintf(fid,'%f\n', Re); 
 
 fprintf(fid,'ITER 200\n'); %aumentar itera√ß√µes m√°ximas
 
