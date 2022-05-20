@@ -31,9 +31,13 @@ pho = 1.1;
 vel = 100;
 mu = 17.54e-6;
 
-weight = 6300;
+g = 9.81;   %[m/s^2]
+
+mass = 6300;
 area1 = 22.8;
 area2 = 22.4;
+
+weight = mass*g;
 
 % Número de Reynolds
 Re = (pho*chord*vel)/mu
