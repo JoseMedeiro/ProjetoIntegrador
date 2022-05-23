@@ -1,19 +1,19 @@
 PLOP
 G
 
-NACA 0024
+NACA 0010
 PPAR
 N 130 
 
 
 OPER
 Visc
-12542759.407070
+6271379.703535
 ITER 200
 PACC
-Save_Airfoil.txt 
+Save_Airfoil-0010-estab.txt 
 
 aseq
 -3
-30
+20
 0.100000
