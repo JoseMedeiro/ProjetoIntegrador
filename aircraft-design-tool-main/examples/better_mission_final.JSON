@@ -390,14 +390,14 @@
                 "oswald_efficiency":0.85, 
                 "airfoil":{
                     "type":"naca0012", 
-                    "tc_max":0.15, 
-                    "xc_max":0.3, 
+                    "tc_max":0.15, 					/ thicness to chord
+                    "xc_max":0.3, 					/ posição da espessura maxima
                     "lift_slope_coefficient":6.2, 
                     "cl_max":1.6
                 }, 
-                "sweep_le":10, 
-                "sweep_c4":15, 
-                "sweep_tc_max":20, 
+                "sweep_le":10, 						/ leading edge
+                "sweep_c4":15, 						/ c/4
+                "sweep_tc_max":20, 					/ thicness max
                 "mass":200
             }, 
             {

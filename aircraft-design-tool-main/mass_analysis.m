@@ -40,7 +40,7 @@ e = 1.0;
 for i = 1 : length(network)
     e = e * network{i}.efficiency;
 end
-
+%% VERRRRRRRRRRRRRR
 function ld = estimate_ld_max(vehicle)
 c = find_by_type(vehicle.components, 'wing.main');
 ld = c.aspect_ratio + 10;

@@ -1,17 +1,16 @@
-%% Let's see what boy is our best
+%% Apresentação de uma das aeronaves
 
-adt('examples/project_mission1final.json')
-%adt('examples/project-01.json')
+adt('examples/better_mission_final.json')
 
-%% Mission things, I guess
+%% Seletor natural para melhorar uma aeronave + sua apresentações
 
-
-  aircraft = natural_selection_design('examples/project_mission1final.json');
-  save_project(aircraft,'examples/better_mission_1.json');
-  adt('examples/better_mission_1.json');
-  adt('examples/better_mission_2.json');
-  adt('examples/better_mission_3.json');
-  adt('examples/better_mission_4.json');
-
-
+% Cria uma aeronave nova e melhor
+name_start  = 'examples/project_mission1final.json';
+name_end    = 'examples/project_better_1.json';
+% Cria uma aeronave nova
+aircraft = natural_selection_design(name_start);
+save_project(aircraft,name_end);
+% Apresenta as duas aeronaves
+adt(name_end);
+adt(name_end);
 

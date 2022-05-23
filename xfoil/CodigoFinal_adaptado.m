@@ -9,13 +9,15 @@
 close all
 clear all
 
+%% 
+
+
 % Variaveis iniciais
 iname = "input.txt"; 
 
 %Onde colocar o perfil a ser estudado!!!
 perfil = "NACA4412.txt";
 perfilName = "NACA 0024";
-
 
 saveFlnmAF = 'Save_Airfoil.txt';
 pastaFigs = '\figsMatlab\';
@@ -24,20 +26,20 @@ firstAoA = -3;
 lastAoA = 30;
 stepAoA = 0.1;
 
-% Variáveis do Perfil
+%% Variáveis do Perfil
 
-chord = 2;
-pho = 1.1;
-vel = 100;
-mu = 17.54e-6;
+chord   = 2;
+pho     = 1.1;
+vel     = 100;
+mu      = 17.54e-6;
 
-g = 9.81;   %[m/s^2]
+g = 9.81;                   % m/s^2
 
-mass = 6300;
-area1 = 22.8;
-area2 = 22.4;
+mass = 6300;                % kg
+area1 = 22.8;               % m^2
+area2 = 22.4;               % m^2
 
-weight = mass*g;
+weight = mass*g;            % N
 
 % Número de Reynolds
 Re = (pho*chord*vel)/mu

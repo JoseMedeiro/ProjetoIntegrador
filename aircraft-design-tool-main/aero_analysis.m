@@ -25,7 +25,7 @@ for i = 1 : length(vehicle.segments)
     vehicle.segments{i}.name = mission.segments{i}.name;
     vehicle.segments{i}.base_drag_coefficient = 0;
 end
-
+% VER ESTA SECÇAO
 main_wing = find_by_type(vehicle.components, 'wing.main');
 main_wing_area_ref = main_wing.span * main_wing.mean_chord;
 
