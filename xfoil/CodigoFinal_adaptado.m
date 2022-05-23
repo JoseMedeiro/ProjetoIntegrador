@@ -14,19 +14,23 @@ iname = "input.txt";
 
 %Onde colocar o perfil a ser estudado!!!
 perfil = "NACA4412.txt";
-perfilName = "NACA 0024";
+perfilName = "NACA 0010";
 
 
-saveFlnmAF = 'Save_Airfoil.txt';
+saveFlnmAF = 'Save_Airfoil-0010-estab.txt';
 pastaFigs = '\figsMatlab\';
 NPanels = 130;
 firstAoA = -3;
-lastAoA = 30;
+lastAoA = 20;
 stepAoA = 0.1;
 
 % Variáveis do Perfil
 
-chord = 2;
+%corda asa
+%chord = 2;
+
+%corda estabilizador 
+chord = 1;
 pho = 1.1;
 vel = 100;
 mu = 17.54e-6;
@@ -46,11 +50,6 @@ Re = (pho*chord*vel)/mu
 cLGrande = weight/(0.5*pho*(vel^2)*(area1+area2))
 
 clpequeno = 0.9*cLGrande
-
-
-
-
-
 %% escrever o ficheiro
 
 %apagar ficheiro com dados de iterações anteriores
@@ -113,7 +112,7 @@ alfa = data(:, 1).'; %.' to transpose e termos um vetor e não uma coluna
 cl = data(:, 2).';
 cd = data(:, 3).';
 cd0 = data(:, 4).';
-cm = data(:, 3).'; %qual o sentido
+cm = data(:, 5).'; %qual o sentido
 
 %Plot cl mem função de alfa
 img1 = figure;
@@ -121,7 +120,7 @@ plot(alfa, cl);
 grid on;
 xlabel('alfa');
 ylabel('C_l');
-t = strcat(perfilName,' - C_l(alfa)');
+t = strcat(perfilName,' - C_l(alfa) - estab Vertical');
 title(t);
 saveas(img1, fullfile([strcat(pwd, pastaFigs, t)]), 'jpg');
 saveas(img1, fullfile([strcat(pwd, pastaFigs, t)]), 'fig');
@@ -132,7 +131,7 @@ plot(cd, cl);
 grid on;
 xlabel('C_d');
 ylabel('C_l');
-t = strcat(perfilName, ' - C_l(C_d)');
+t = strcat(perfilName, ' - C_l(C_d) - estab Vertical');
 title(t);
 saveas(img2, fullfile([strcat(pwd, pastaFigs, t)]), 'jpg');
 saveas(img2, fullfile([strcat(pwd, pastaFigs, t)]), 'fig');
@@ -144,7 +143,7 @@ plot(cl, ClCd);
 grid on;
 xlabel('C_l');
 ylabel('C_l/C_d');
-t = strcat(perfilName, ' - C_l-C_d (C_d)');
+t = strcat(perfilName, ' - C_l-C_d (C_l) - estab Vertical');
 title(t);
 saveas(img3, fullfile([strcat(pwd, pastaFigs, t)]), 'jpg');
 saveas(img3, fullfile([strcat(pwd, pastaFigs, t)]), 'fig');
@@ -156,7 +155,7 @@ plot(alfa, cm);
 grid on;
 xlabel('alfa');
 ylabel('C_m');
-t = strcat(perfilName, ' - C_m (alfa)');
+t = strcat(perfilName, ' - C_m (alfa) - estab Vertical');
 title(t);
 saveas(img4, fullfile([strcat(pwd, pastaFigs, t)]), 'jpg');
 saveas(img4, fullfile([strcat(pwd, pastaFigs, t)]), 'fig');
