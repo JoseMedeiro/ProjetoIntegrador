@@ -170,7 +170,7 @@
                 "angle": -5.0
             },
             {
-                "name": First Transition - Down",
+                "name": "First Transition - Down",
                 "type": "transition",
                 "energy_network": "Electric Energy Network @ vertical flight",
                 "altitude": 100.0,
@@ -193,14 +193,14 @@
                 "altitude": 1000.0
             },
             {
-                "name": Second Ascent",
+                "name": "Second Ascent",
                 "type": "vertical_climb",
                 "energy_network": "Electric Energy Network @ vertical flight",
                 "velocity": 4.0,
                 "altitude": [0.0, 100.0]
             },
             {
-                "name": Second Transition - Up",
+                "name": "Second Transition - Up",
                 "type": "transition",
                 "energy_network": "Electric Energy Network @ vertical flight",
                 "altitude": 500.0,
