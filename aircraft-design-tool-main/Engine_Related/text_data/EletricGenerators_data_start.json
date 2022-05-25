@@ -1,0 +1,53 @@
+{   "generator_set":[
+        {   "type":"generator",
+            "name":"Generatorss Classe 1",
+            "generators":[
+                {   "name":"KOHLER",
+                    "efficiency":0.97, 
+                    "mass":220, 
+                    "max_power":105000
+                },
+                {   "name":"WPG440L8", 
+                    "efficiency":0.97, 
+                    "mass":3.025,  
+                    "max_power":320000
+                },
+                {   "name":"Safran DC Generator", 
+                    "efficiency":0.97, 
+                    "mass":27,
+                    "max_power":250000
+                },
+                {   "name":"Skid GenSet",
+                    "efficiency":0.97, 
+                    "mass":1542.2, 
+                    "max_power":60000
+                },
+                {   "name":"mtu 10V1600 DS560", 
+                    "efficiency":0.97, 
+                    "mass":4002,  
+                    "max_power":448800
+                },
+                {   "name":"60 KW HMMWV-TOWABLE GENERATOR TRAILER", 
+                    "efficiency":0.97, 
+                    "mass":80,
+                    "max_power":60000
+                },
+                {   "name":"LG275C",
+                    "efficiency":0.97, 
+                    "mass":2030,
+                    "max_power":200000
+                },
+                {   "name":"400 Amp Starter Generator Unit", 
+                    "efficiency":0.97, 
+                    "mass":12.25, 
+                    "max_power":12500
+                },
+                {   "name":"400 Amp Power Conversion Unit", 
+                    "efficiency":0.97, 
+                    "mass":10.26,
+                    "max_power":11400
+                }
+            ]
+        }
+    ]
+}
