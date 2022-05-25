@@ -1,23 +1,23 @@
+%% Aircraft build tool - Engine Expansion Pack
+% 
+% José Medeiro (josemedeiro@tecnico.ulisboa.pt)
+%
+% This file is subject to the license terms in the LICENSE file included in
+% this distribution (I guess)
+%
 %% Briefing
 %
-% Serao dados vários motores para serem analisados, a fim de se encontrarem
-% razões de potencia/peso para diferentes gamas de potencia disponivel. A
-% relevancia desta função prende-se com a necessidade de dimensionalisar
-% dinamicamente os motores para iterar no design da aeronave (e
-% possibilidade de se conceber um motor com caracteristicas de potência ou
-% peso intermédios, mantendo P/W constantes).
+% Performs and writes the analysis of a set of types of engines given in a
+% .JSON file and gives a plot showing the results obtained (data point
+% collection and linear regression curves).
 %
-% É necessário dar ao programa os motores, num ficheiro .JSON, e o output é
-% um gráfico da potência em função do peso com os motores representados e 
-% um conjunto de retas aproximadas para o P/W, assim como numericamente os 
-% limites superiores e inferiores de potencia validos, o declive e o valor
-% inicial (numa matriz? Numa estrutura? não sei ainda)
+% The inputs are the input and output file names.
 %
-%% Declaracao inicial dos ficheiros
-text_data_file  = 'text_data/';
-input_string    = [text_data_file 'engine_data_start.JSON'];
-output_string   = [text_data_file 'engine_data_end.JSON'];
-
+% The output is the structure with the analysis;
+% The indirect output is a .JSON file containing the output information.
+%
+%% Function
+function complex_engines = Build_Engine(input_string,output_string)
 %% Leitura dos motores disponíveis e criação de estimativas W/P
 
 real_engines    = read_file_engines(input_string);
@@ -27,18 +27,42 @@ complex_engines = fill_engines(real_engines);
 
 figure();
 hold on;
+n = 0;
 
 for c=1:size(complex_engines)
     
-    x = complex_engines{c}.min_weigh:100:complex_engines{c}.max_weigh;
-    f = x.*complex_engines{c}.slope + complex_engines{c}.p_0;
+    x_aproximado = linspace(complex_engines.engine_set{c}.min_weight,complex_engines.engine_set{c}.max_weight,100);
+    y_aproximado = x_aproximado.*complex_engines.engine_set{c}.b1 + complex_engines.engine_set{c}.b0;
     
-    plot(x, f);
-    plot(real_engines{c}.weight,real_engines{c}.power,'x');
+    for d=1:size(real_engines.engine_set{c}.engines,1)
+        plot(real_engines.engine_set{c}.engines{d}.mass,...
+            real_engines.engine_set{c}.engines{d}.max_power,...
+            'x');
+        legend_cell{n+d} =  real_engines.engine_set{c}.engines{d}.name;
+        %x_real(d) = real_engines.engine_set{c}.engines{d}.mass;
+        %y_real(d) = real_engines.engine_set{c}.engines{d}.max_power;
+    end
+    %plot(x_real,y_real,'x');
+    %legend_cell{2*c -1} = real_engines.engine_set{c}.name;
     
+    n = n+d +1;
+    plot(x_aproximado, y_aproximado);
+    legend_cell{n} = ['Regressão linear dos ' real_engines.engine_set{c}.name];
+    %legend_cell{2*c} = real_engines.engine_set{c}.name;
 end
 
+legend(legend_cell,'Location','eastoutside','NumColumns', 2);
+hold off;
 %% Escrita do ficheiro com os resultados
 
-real_engines    = write_file_engines(complex_engines);
+fid=fopen(output_string,'w');
 
+encodedJSON = jsonencode(complex_engines);
+encodedJSON = strrep(encodedJSON, ',', sprintf(',\r'));
+encodedJSON = strrep(encodedJSON, '[{', sprintf('[\r{'));
+encodedJSON = strrep(encodedJSON, '}]', sprintf('\r}\r]'));
+
+fprintf(fid, encodedJSON); 
+fclose('all');
+
+end

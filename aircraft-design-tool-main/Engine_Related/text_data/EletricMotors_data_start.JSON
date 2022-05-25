@@ -1,0 +1,44 @@
+{   "engine_set":[
+        {   "type":"eletric",
+            "name":"Eletric Motors Classe 1",
+            "engines":[
+                {   "name":"magniX",
+                    "efficiency":0.9, 
+                    "mass":200,
+                    "brake_specific_fuel_consumption":4.25E-5, 
+                    "max_power":640000
+                },
+                {   "name":"H3X - E LOCOOOO", 
+                    "efficiency":0.967, 
+                    "mass":15, 
+                    "brake_specific_fuel_consumption":4.25E-5, 
+                    "max_power":250000
+                },
+                {   "name":"EMRAX", 
+                    "efficiency":0.97, 
+                    "mass":42,
+                    "brake_specific_fuel_consumption":4.25E-5, 
+                    "max_power":380000
+                },
+                {   "name":"Siemens",
+                    "efficiency":0.9,
+                    "mass":49,
+                    "brake_specific_fuel_consumption":4.25E-5, 
+                    "max_power":204000
+                },
+                {   "name":"MGM COMPRO", 
+                    "efficiency":0.99, 
+                    "mass":22, 
+                    "brake_specific_fuel_consumption":4.25E-5, 
+                    "max_power":80000
+                },
+                {   "name":"T-Motor",
+                    "efficiency":0.9, 
+                    "mass":5.2,
+                    "brake_specific_fuel_consumption":4.25E-5, 
+                    "max_power":28000
+                }
+            ]
+        }
+    ]
+}
