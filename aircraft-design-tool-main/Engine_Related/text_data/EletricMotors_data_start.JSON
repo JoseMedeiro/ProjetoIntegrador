@@ -1,6 +1,6 @@
 {   "engine_set":[
         {   "type":"eletric",
-            "name":"Eletric Motors Classe 1",
+            "name":"Eletric Motors Class 1",
             "engines":[
                 {   "name":"magniX",
                     "efficiency":0.9, 
@@ -26,6 +26,17 @@
                     "brake_specific_fuel_consumption":4.25E-5, 
                     "max_power":204000
                 },
+                {   "name":"YASA",
+                    "efficiency":0.95, 
+                    "mass":37,
+                    "brake_specific_fuel_consumption":4.25E-5, 
+                    "max_power":200000
+                }
+            ]
+        },
+        {   "type":"eletric",
+            "name":"Eletric Motors Class 2",
+            "engines":[
                 {   "name":"MGM COMPRO", 
                     "efficiency":0.99, 
                     "mass":22, 
@@ -37,6 +48,30 @@
                     "mass":5.2,
                     "brake_specific_fuel_consumption":4.25E-5, 
                     "max_power":28000
+                },
+                {   "name":"Turnigy", 
+                    "efficiency":0.9, 
+                    "mass":2.5, 
+                    "brake_specific_fuel_consumption":4.25E-5, 
+                    "max_power":9800
+                },
+                {   "name":"Thin Gap", 
+                    "efficiency":0.97, 
+                    "mass":42,
+                    "brake_specific_fuel_consumption":4.25E-5, 
+                    "max_power":44000
+                },
+                {   "name":"KDE Direct",
+                    "efficiency":0.9,
+                    "mass":0.7,
+                    "brake_specific_fuel_consumption":4.25E-5, 
+                    "max_power":12800
+                },
+                {   "name":"Pipistrel", 
+                    "efficiency":0.99, 
+                    "mass":22, 
+                    "brake_specific_fuel_consumption":4.25E-5, 
+                    "max_power":80000
                 }
             ]
         }

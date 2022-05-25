@@ -30,18 +30,21 @@
 %
 %% Declaracao inicial dos ficheiros
 text_data_folder    = 'text_data/';
-text_data_classes   = [ "Turboshafts"   ;...
-                        "EletricMotors"];
+image_data_folder   = 'figure_data/';
+text_data_classes   = [ "Turboshafts"       ;...
+                        "EletricMotors"     ;...
+                        "EletricGenerators" ];
 
-for c=1:length(text_data_inputs)
-    input_string(c,1)	= join([text_data_folder, text_data_classes(c), '_data_start.JSON'],"");
-    output_string(c,1) 	= join([text_data_folder, text_data_classes(c), '_data_end.JSON'],"");
+for c=1:length(text_data_classes)
+    input_file(c,1)         = join([text_data_folder, text_data_classes(c), '_data_start.JSON'],"");
+    output_text_file(c,1) 	= join([text_data_folder, text_data_classes(c), '_data_end.JSON'],"");
+    output_image_file(c,1) 	= join([image_data_folder, text_data_classes(c), '.png'],"");
 end
 %% Realização da análise de cada um dos ficheiros
 
-for c=1:length(text_data_inputs)
+for c=1:length(text_data_classes)
     
-    Engine_Build(input_string(c),output_string(c));
+    Engine_Build(input_file(c),output_text_file(c),output_image_file(c));
     
 end
 

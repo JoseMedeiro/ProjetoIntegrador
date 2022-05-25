@@ -1,7 +1,7 @@
-{   "generator_set":[
+{   "engine_set":[
         {   "type":"generator",
             "name":"Generatorss Classe 1",
-            "generators":[
+            "engines":[
                 {   "name":"KOHLER",
                     "efficiency":0.97, 
                     "mass":220, 

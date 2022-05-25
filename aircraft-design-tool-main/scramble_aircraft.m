@@ -178,10 +178,10 @@ for i = 1 : length(frame)
     % },
     elseif(is_type(frame{i},'driver.rotor.main'))
         % Radius of the rotor
-        lim = [3, 4];
+        lim_1 = [2, 4];
         while 1
-            a = frame{i}.radius*surprise((lim(1)-lim(2))/frame{i}.radius, REL_ADVANCEMENT);
-            if is_in_limit(lim(1), a,lim(2))
+            a = frame{i}.radius*surprise((lim_1(1)-lim_1(2))/frame{i}.radius, REL_ADVANCEMENT);
+            if is_in_limit(lim_1(1), a,lim_1(2))
                 frame{i}.radius = a;
                 break;
             end
@@ -194,10 +194,10 @@ for i = 1 : length(frame)
     %
     % No changes
     %
-    %% Motor
+    %% Eletric Motor
     % {
     %     "name": "Electric Motor",
-    %     "type": "engine.prop",
+    %     "type": "engine.prop.eletric",
     %     "number": 4,
     %     "efficiency": 0.97,
     %     "mass": 50,
@@ -205,16 +205,44 @@ for i = 1 : length(frame)
     %     "max_power": 550000
     % 
     % }
-    elseif(is_type(frame{i},'engine.prop'))
-        % Maximum Power
-        lim = [400000, 550000];
-        while 1
-            a = frame{i}.max_power*surprise((lim(1)-lim(2))/frame{i}.max_power, REL_ADVANCEMENT*2);
-            if is_in_limit(lim(1), a,lim(2))
-                frame{i}.max_power = a;
-                break;
+    elseif(is_type(frame{i},'engine.prop.eletric'))        
+            % Maximum Power
+            lim = [400000, 550000];
+            b1  = 2261;
+            b0  = 179666;
+            while 1
+                a = frame{i}.max_power*surprise((lim(1)-lim(2))/frame{i}.max_power, REL_ADVANCEMENT*2);
+                if is_in_limit(lim(1), a,lim(2))
+                    frame{i}.max_power  = a;
+                    % Mass calculated based on power density analysis
+                    frame{i}.mass       = (a - b0)/b1;
+                    break;
+                end
             end
-        end
+    %% Turboshaft
+    % {
+    %     "name":"Turboshaft", 
+    %     "type":"engine.prop.turboshaft", 
+    %     "efficiency":0.8, 
+    %     "mass":100,
+    %     "brake_specific_fuel_consumption":4.25E-5, 
+    %     "max_power":534063.28675790748
+    % }, 
+    %
+    elseif(is_type(frame{i},'engine.prop.turboshaft'))        
+            % Maximum Power
+            lim = [1.6*10^(6), 3*10^(6)];
+            b1  = 8279;
+            b0  = -214882;
+            while 1
+                a = frame{i}.max_power*surprise((lim(1)-lim(2))/frame{i}.max_power, REL_ADVANCEMENT*2);
+                if is_in_limit(lim(1), a,lim(2))
+                    frame{i}.max_power  = a;
+                    % Mass calculated based on power density analysis
+                    frame{i}.mass       = (a - b0)/b1;
+                    break;
+                end
+            end
     end
 end
 aircraft.vehicle.components = frame;

@@ -136,7 +136,13 @@
                 "type":"vertical_climb", 
                 "energy_network":"Electric Energy Network", 
                 "velocity":4, 
-                "altitude":[0,100]
+                "altitude":[0,100], 
+                "temperature":[288.15,287.5], 
+                "speed_sound":[340.29412435568145,339.91009509868928], 
+                "pressure":[101325,100129.43869106943], 
+                "density":[1.225,1.213282777273089], 
+                "time":25, 
+                "range":0
             }, 
             {
                 "name":"First Transition - Up", 
@@ -145,7 +151,12 @@
                 "altitude":100, 
                 "transition_angle":40, 
                 "time":120, 
-                "velocity":[4,60]
+                "velocity":[4,60], 
+                "temperature":287.5, 
+                "speed_sound":339.91009509868928, 
+                "pressure":100129.43869106943, 
+                "density":1.213282777273089, 
+                "range":3840
             }, 
             {
                 "name":"First Climb", 
@@ -153,7 +164,13 @@
                 "energy_network":"Hybrid Energy Network", 
                 "velocity":60, 
                 "altitude":[100,1100], 
-                "angle":10
+                "angle":10, 
+                "temperature":[287.5,281], 
+                "speed_sound":[339.91009509868928,336.04566585510366], 
+                "pressure":[100129.43869106943,88789.763662446421], 
+                "density":[1.213282777273089,1.1007651724677936], 
+                "time":95.979508052393911, 
+                "range":5671.28181961771
             }, 
             {
                 "name":"Madeira - Porto Santo", 
@@ -161,7 +178,12 @@
                 "energy_network":"Hybrid Energy Network", 
                 "velocity":100, 
                 "range":80000, 
-                "altitude":1100
+                "altitude":1100, 
+                "temperature":281, 
+                "speed_sound":336.04566585510366, 
+                "pressure":88789.763662446421, 
+                "density":1.1007651724677936, 
+                "time":800
             }, 
             {
                 "name":"First Descent", 
@@ -169,7 +191,13 @@
                 "energy_network":"Hybrid Energy Network", 
                 "velocity":-70, 
                 "altitude":[1100,100], 
-                "angle":-10
+                "angle":-10, 
+                "temperature":[281,287.5], 
+                "speed_sound":[336.04566585510366,339.91009509868928], 
+                "pressure":[88789.763662446421,100129.43869106943], 
+                "density":[1.1007651724677936,1.213282777273089], 
+                "time":82.268149759194785, 
+                "range":5671.28181961771
             }, 
             {
                 "name":"First Transition - Down", 
@@ -178,28 +206,51 @@
                 "altitude":100, 
                 "transition_angle":40, 
                 "time":120, 
-                "velocity":[-70,-4]
+                "velocity":[-70,-4], 
+                "temperature":287.5, 
+                "speed_sound":339.91009509868928, 
+                "pressure":100129.43869106943, 
+                "density":1.213282777273089, 
+                "range":-4440
             }, 
             {
                 "name":"Second Vertical Descent", 
                 "type":"vertical_descent", 
                 "energy_network":"Electric Energy Network", 
                 "velocity":-4, 
-                "altitude":[100,0]
+                "altitude":[100,0], 
+                "temperature":[287.5,288.15], 
+                "speed_sound":[339.91009509868928,340.29412435568145], 
+                "pressure":[100129.43869106943,101325], 
+                "density":[1.213282777273089,1.225], 
+                "time":25, 
+                "range":0
             }, 
             {
                 "name":"Load Porto Santo", 
                 "type":"load_step", 
                 "mass":100, 
                 "time":0, 
-                "altitude":0
+                "altitude":0, 
+                "temperature":288.15, 
+                "speed_sound":340.29412435568145, 
+                "pressure":101325, 
+                "density":1.225, 
+                "velocity":0, 
+                "range":0
             }, 
             {
                 "name":"Second Ascent", 
                 "type":"vertical_climb", 
                 "energy_network":"Electric Energy Network", 
                 "velocity":3, 
-                "altitude":[0,100]
+                "altitude":[0,100], 
+                "temperature":[288.15,287.5], 
+                "speed_sound":[340.29412435568145,339.91009509868928], 
+                "pressure":[101325,100129.43869106943], 
+                "density":[1.225,1.213282777273089], 
+                "time":33.333333333333336, 
+                "range":0
             }, 
             {
                 "name":"Second Transition - Up", 
@@ -208,7 +259,12 @@
                 "altitude":100, 
                 "transition_angle":40, 
                 "time":120, 
-                "velocity":[3,60]
+                "velocity":[3,60], 
+                "temperature":287.5, 
+                "speed_sound":339.91009509868928, 
+                "pressure":100129.43869106943, 
+                "density":1.213282777273089, 
+                "range":3780
             }, 
             {
                 "name":"Second Climb", 
@@ -216,7 +272,13 @@
                 "energy_network":"Hybrid Energy Network", 
                 "velocity":60, 
                 "altitude":[100,1100], 
-                "angle":10
+                "angle":10, 
+                "temperature":[287.5,281], 
+                "speed_sound":[339.91009509868928,336.04566585510366], 
+                "pressure":[100129.43869106943,88789.763662446421], 
+                "density":[1.213282777273089,1.1007651724677936], 
+                "time":95.979508052393911, 
+                "range":5671.28181961771
             }, 
             {
                 "name":"Porto Santo - Madeira", 
@@ -224,7 +286,12 @@
                 "energy_network":"Hybrid Energy Network", 
                 "velocity":100, 
                 "range":80000, 
-                "altitude":1100
+                "altitude":1100, 
+                "temperature":281, 
+                "speed_sound":336.04566585510366, 
+                "pressure":88789.763662446421, 
+                "density":1.1007651724677936, 
+                "time":800
             }, 
             {
                 "name":"Second Descent", 
@@ -232,7 +299,13 @@
                 "energy_network":"Hybrid Energy Network", 
                 "velocity":-70, 
                 "altitude":[1100,100], 
-                "angle":-10
+                "angle":-10, 
+                "temperature":[281,287.5], 
+                "speed_sound":[336.04566585510366,339.91009509868928], 
+                "pressure":[88789.763662446421,100129.43869106943], 
+                "density":[1.1007651724677936,1.213282777273089], 
+                "time":82.268149759194785, 
+                "range":5671.28181961771
             }, 
             {
                 "name":"Second Transition - Down", 
@@ -241,23 +314,42 @@
                 "altitude":100, 
                 "transition_angle":40, 
                 "time":120, 
-                "velocity":[-70,-4]
+                "velocity":[-70,-4], 
+                "temperature":287.5, 
+                "speed_sound":339.91009509868928, 
+                "pressure":100129.43869106943, 
+                "density":1.213282777273089, 
+                "range":-4440
             }, 
             {
                 "name":"Second Vertical Descent", 
                 "type":"vertical_descent", 
                 "energy_network":"Electric Energy Network", 
                 "velocity":-4, 
-                "altitude":[100,0]
+                "altitude":[100,0], 
+                "temperature":[287.5,288.15], 
+                "speed_sound":[339.91009509868928,340.29412435568145], 
+                "pressure":[100129.43869106943,101325], 
+                "density":[1.213282777273089,1.225], 
+                "time":25, 
+                "range":0
             }, 
             {
                 "name":"Final Descent", 
                 "type":"landing", 
                 "energy_network":"Electric Energy Network", 
                 "time":120, 
-                "altitude":0
+                "altitude":0, 
+                "temperature":288.15, 
+                "speed_sound":340.29412435568145, 
+                "pressure":101325, 
+                "density":1.225, 
+                "velocity":0, 
+                "range":0
             }
-        ]
+        ], 
+        "time":2664.8286489565107, 
+        "range":181425.12727847084
     }, 
     "vehicle":{
         "components":[
@@ -286,45 +378,45 @@
                 "type":"fuselage", 
                 "interf_factor":1, 
                 "diameter":2, 
-                "length":9.5, 
+                "length":9.4, 
                 "mass":800
             }, 
             {
                 "name":"Main Wing Front", 
                 "type":"wing.main", 
                 "interf_factor":1.5, 
-                "aspect_ratio":6.75, 
+                "aspect_ratio":6.3, 
                 "mean_chord":2, 
                 "oswald_efficiency":0.85, 
                 "airfoil":{
-                    "type":"naca0012", 
-                    "tc_max":0.15, 
+                    "type":"naca2412", 
+                    "tc_max":0.12, 
                     "xc_max":0.3, 
-                    "lift_slope_coefficient":6.2, 
-                    "cl_max":1.6
+                    "lift_slope_coefficient":0.106, 
+                    "cl_max":2
                 }, 
-                "sweep_le":10, 
-                "sweep_c4":15, 
-                "sweep_tc_max":20, 
+                "sweep_le":0, 
+                "sweep_c4":0, 
+                "sweep_tc_max":0, 
                 "mass":200
             }, 
             {
                 "name":"Horizontal Tail", 
                 "type":"wing.htail", 
                 "interf_factor":1.5, 
-                "aspect_ratio":6.4174790051341652, 
-                "mean_chord":2.0210236115591784, 
+                "aspect_ratio":5, 
+                "mean_chord":2, 
                 "oswald_efficiency":0.85, 
                 "airfoil":{
-                    "type":"naca0012", 
-                    "tc_max":0.15, 
+                    "type":"naca2412", 
+                    "tc_max":0.12, 
                     "xc_max":0.3, 
-                    "lift_slope_coefficient":5.8, 
+                    "lift_slope_coefficient":0.0636, 
                     "cl_max":1.6
                 }, 
-                "sweep_le":10, 
-                "sweep_c4":15, 
-                "sweep_tc_max":20, 
+                "sweep_le":0, 
+                "sweep_c4":0, 
+                "sweep_tc_max":0, 
                 "mass":200
             }, 
             {
@@ -335,24 +427,24 @@
                 "mean_chord":1, 
                 "oswald_efficiency":0.85, 
                 "airfoil":{
-                    "type":"naca0012", 
-                    "tc_max":0.15, 
+                    "type":"naca0006", 
+                    "tc_max":0.06, 
                     "xc_max":0.3, 
-                    "lift_slope_coefficient":6.2, 
-                    "cl_max":1.6
+                    "lift_slope_coefficient":0.11, 
+                    "cl_max":1.5
                 }, 
-                "sweep_le":10, 
-                "sweep_c4":15, 
-                "sweep_tc_max":20, 
+                "sweep_le":0, 
+                "sweep_c4":0, 
+                "sweep_tc_max":0, 
                 "mass":50
             }, 
             {
                 "name":"Turboshaft", 
-                "type":"engine.prop", 
+                "type":"engine.prop.turboshaft", 
                 "efficiency":0.8, 
-                "mass":100, 
+                "mass":300, 
                 "brake_specific_fuel_consumption":4.25E-5, 
-                "max_power":524632.97490218375
+                "max_power":2.270E+6
             }, 
             {
                 "name":"Battery", 
@@ -373,11 +465,11 @@
                 "type":"driver.rotor.main", 
                 "number":4, 
                 "number_blades":3, 
-                "radius":3.1144446014561331, 
+                "radius":3, 
                 "rotor_solidity":0.08, 
                 "induced_power_factor":1.15, 
                 "base_drag_coefficient":0.02, 
-                "tip_velocity":240.1, 
+                "tip_velocity":160, 
                 "efficiency":0.6, 
                 "mass":20
             }, 
@@ -391,16 +483,16 @@
                 "name":"Generator", 
                 "type":"generator", 
                 "efficiency":0.96, 
-                "mass":50
+                "mass":200
             }, 
             {
                 "name":"Electric Motor", 
-                "type":"engine.prop", 
+                "type":"engine.prop.eletric", 
                 "number":4, 
                 "efficiency":0.97, 
-                "mass":50, 
+                "mass":165, 
                 "brake_specific_fuel_consumption":4.25E-5, 
-                "max_power":535998.6059821744
+                "max_power":550000
             }
         ]
     }, 

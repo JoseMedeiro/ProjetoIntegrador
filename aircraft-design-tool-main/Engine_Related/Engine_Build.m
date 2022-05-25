@@ -17,19 +17,19 @@
 % The indirect output is a .JSON file containing the output information.
 %
 %% Function
-function complex_engines = Build_Engine(input_string,output_string)
+function complex_engines = Engine_Build(input_file,output_text_file,output_image_file)
 %% Leitura dos motores disponíveis e criação de estimativas W/P
 
-real_engines    = read_file_engines(input_string);
+real_engines    = read_file_engines(input_file);
 complex_engines = fill_engines(real_engines);
 
 %% Plot do gráfico com os motores e curvas aproximadas
 
-figure();
+image = figure('WindowState', 'maximized');
 hold on;
 n = 0;
 
-for c=1:size(complex_engines)
+for c=1:length(complex_engines.engine_set)
     
     x_aproximado = linspace(complex_engines.engine_set{c}.min_weight,complex_engines.engine_set{c}.max_weight,100);
     y_aproximado = x_aproximado.*complex_engines.engine_set{c}.b1 + complex_engines.engine_set{c}.b0;
@@ -47,18 +47,23 @@ for c=1:size(complex_engines)
     
     n = n+d +1;
     plot(x_aproximado, y_aproximado);
-    legend_cell{n} = ['Regressão linear dos ' real_engines.engine_set{c}.name];
+    legend_cell{n} = ['RL de ' real_engines.engine_set{c}.name];
     %legend_cell{2*c} = real_engines.engine_set{c}.name;
 end
 
 legend(legend_cell,'Location','eastoutside','NumColumns', 2);
 hold off;
+
+saveas(image,output_image_file);
+image.WindowState = 'normal';
 %% Escrita do ficheiro com os resultados
 
-fid=fopen(output_string,'w');
+fid=fopen(output_text_file,'w');
 
 encodedJSON = jsonencode(complex_engines);
 encodedJSON = strrep(encodedJSON, ',', sprintf(',\r'));
+encodedJSON = strrep(encodedJSON, '},', sprintf('\r},'));
+encodedJSON = strrep(encodedJSON, ']', sprintf(']\r'));
 encodedJSON = strrep(encodedJSON, '[{', sprintf('[\r{'));
 encodedJSON = strrep(encodedJSON, '}]', sprintf('\r}\r]'));
 

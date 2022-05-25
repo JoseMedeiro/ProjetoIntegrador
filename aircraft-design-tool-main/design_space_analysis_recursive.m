@@ -158,7 +158,7 @@ for i = 1 : length(mission.segments)
         inside_constraints(1) = 0;
         break;
     end
-    if(maximum_values(1,2) < fpl_design || maximum_values(2,2) < dl_design)
+    if(maximum_values(1,2) < vpl_design || maximum_values(2,2) < dl_design)
         inside_constraints(2) = 0;
         break;
     end
