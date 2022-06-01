@@ -50,6 +50,18 @@
                     "con_power":41000
                 }
             ]
-        }
+        },
+        {   "type":"eletric",
+            "name":"Equipmake",
+            "engines":[
+                {   "name":"AMPERE-220",
+                    "efficiency":0.97, 
+                    "mass":20,
+                    "brake_specific_fuel_consumption":4.25E-5, 
+                    "max_power":220000
+                    "con_power":165000
+                }
+            ]
+        },
     ]
 }
