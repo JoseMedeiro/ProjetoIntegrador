@@ -32,23 +32,33 @@ n = 0;
 for c=1:length(complex_engines.engine_set)
     
     x_aproximado = linspace(complex_engines.engine_set{c}.min_weight,complex_engines.engine_set{c}.max_weight,100);
-    y_aproximado = x_aproximado.*complex_engines.engine_set{c}.b1 + complex_engines.engine_set{c}.b0;
-    
+    if(isfield(complex_engines.engine_set{c},'b1_m'))
+    y_aproximado = x_aproximado.*complex_engines.engine_set{c}.b1_m + complex_engines.engine_set{c}.b0_m;
+    end
+    if(isfield(complex_engines.engine_set{c},'b1_c'))
+    z_aproximado = x_aproximado.*complex_engines.engine_set{c}.b1_c + complex_engines.engine_set{c}.b0_c;
+    end
     for d=1:size(real_engines.engine_set{c}.engines,1)
         plot(real_engines.engine_set{c}.engines{d}.mass,...
             real_engines.engine_set{c}.engines{d}.max_power,...
-            'x');
-        legend_cell{n+d} =  real_engines.engine_set{c}.engines{d}.name;
+            'rx');
+        legend_cell{n+2*d-1} =  [real_engines.engine_set{c}.engines{d}.name 'Max Power'];
+        
+        plot(   real_engines.engine_set{c}.engines{d}.mass,...
+                real_engines.engine_set{c}.engines{d}.con_power,...
+            'bx');
+        legend_cell{n+2*d} =  [real_engines.engine_set{c}.engines{d}.name 'Continuous Power'];
         %x_real(d) = real_engines.engine_set{c}.engines{d}.mass;
         %y_real(d) = real_engines.engine_set{c}.engines{d}.max_power;
     end
     %plot(x_real,y_real,'x');
     %legend_cell{2*c -1} = real_engines.engine_set{c}.name;
     
-    n = n+d +1;
+    n = n+2*d +1;
     plot(x_aproximado, y_aproximado);
-    legend_cell{n} = ['RL de ' real_engines.engine_set{c}.name];
-    %legend_cell{2*c} = real_engines.engine_set{c}.name;
+    legend_cell{n} = ['RL de ' real_engines.engine_set{c}.name 'Max Power'];
+    plot(x_aproximado, z_aproximado);
+    legend_cell{n} = ['RL de ' real_engines.engine_set{c}.name 'Continuous Power'];
 end
 
 legend(legend_cell,'Location','eastoutside','NumColumns', 2);

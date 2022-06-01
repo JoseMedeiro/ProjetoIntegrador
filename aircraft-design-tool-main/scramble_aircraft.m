@@ -4,6 +4,10 @@ global constants;
 constants.g = 9.81; % m/s^2
 REL_ADVANCEMENT = 0.05;
 frame = aircraft.vehicle.components;
+
+mean_chord      = 0;
+aspect_ratio    = 0;
+
 for i = 1 : length(frame)
     %% Crew
     %
@@ -78,20 +82,29 @@ for i = 1 : length(frame)
         lim_3 = [10 , 16];
         while 1
             % Aspect ratio
-            while 1
-                a = frame{i}.aspect_ratio*surprise((lim_1(1)-lim_1(2))/frame{i}.aspect_ratio, REL_ADVANCEMENT);
-                if is_in_limit(lim_1(1), a, lim_1(2))
-                    frame{i}.aspect_ratio = a;
-                    break;
+            if aspect_ratio~=0
+                while 1
+                    a = frame{i}.aspect_ratio*surprise((lim_1(1)-lim_1(2))/frame{i}.aspect_ratio, REL_ADVANCEMENT);
+                    if is_in_limit(lim_1(1), a, lim_1(2))
+                        frame{i}.aspect_ratio = a;
+                        aspect_ratio = a;
+                        break;
+                    end
                 end
+            else
+                frame{i}.aspect_ratio = aspect_ratio;
             end
             % mean chord
+            if mean_chord~=0
             while 1
                 a = frame{i}.mean_chord*surprise((lim_2(1)-lim_2(2))/frame{i}.mean_chord, REL_ADVANCEMENT);
                 if is_in_limit(lim_2(1), a, lim_2(2))
                     frame{i}.mean_chord = a;
                     break;
                 end
+            end
+            else
+                frame{i}.mean_chord = mean_chord;
             end
             % span (inferred)
             if is_in_limit(lim_3(1), frame{i}.aspect_ratio*frame{i}.mean_chord, lim_3(2))

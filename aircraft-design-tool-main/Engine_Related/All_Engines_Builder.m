@@ -31,12 +31,14 @@
 %% Declaracao inicial dos ficheiros
 text_data_folder    = 'text_data/';
 image_data_folder   = 'figure_data/';
-text_data_classes   = [ "Turboshafts"       ;...
-                        "EletricMotors"     ;...
-                        "EletricGenerators" ];
+% text_data_classes   = [ "Turboshafts"       ;...
+%                         "EletricMotors"     ;...
+%                         "EletricGenerators" ];
 
+text_data_classes   = [ "EletricMotors"  ];
+    
 for c=1:length(text_data_classes)
-    input_file(c,1)         = join([text_data_folder, text_data_classes(c), '_data_start.JSON'],"");
+    input_file(c,1)         = join([text_data_folder, text_data_classes(c), '.JSON'],"");
     output_text_file(c,1) 	= join([text_data_folder, text_data_classes(c), '_data_end.JSON'],"");
     output_image_file(c,1) 	= join([image_data_folder, text_data_classes(c), '.png'],"");
 end
