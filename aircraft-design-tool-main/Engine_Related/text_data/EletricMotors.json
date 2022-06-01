@@ -65,10 +65,17 @@
                     "efficiency":0.97, 
                     "mass":20,
                     "brake_specific_fuel_consumption":4.25E-5, 
-                    "max_power":220000
+                    "max_power":220000,
                     "con_power":165000
+                },
+                {   "name":"0",
+                    "efficiency":0.967, 
+                    "mass":0,
+                    "brake_specific_fuel_consumption":4.25E-5, 
+                    "max_power":0,
+                    "con_power":0
                 }
             ]
-        },
+        }
     ]
 }
