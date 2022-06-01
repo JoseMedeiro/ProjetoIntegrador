@@ -1,0 +1,55 @@
+{   "engine_set":[
+        {   "type":"eletric",
+            "name":"H3X",
+            "engines":[
+                {   "name":"H3X",
+                    "efficiency":0.967, 
+                    "mass":13,
+                    "brake_specific_fuel_consumption":4.25E-5, 
+                    "max_power":250000
+                    "con_power":200000
+                }
+            ]
+        },
+        {   "type":"eletric",
+            "name":"EMRAX",
+            "engines":[
+                {   "name":"EMRAX 268", 
+                    "efficiency":0.98, 
+                    "mass":20.3, 
+                    "brake_specific_fuel_consumption":4.25E-5, 
+                    "max_power": 200000
+                    "con_power":107000
+                },
+                {   "name":"EMRAX 348",
+                    "efficiency":0.98, 
+                    "mass":40.5,
+                    "brake_specific_fuel_consumption":4.25E-5, 
+                    "max_power":380000
+                    "con_power":210000
+                },
+                {   "name":"EMRAX 188",
+                    "efficiency":0.98, 
+                    "mass":7.2,
+                    "brake_specific_fuel_consumption":4.25E-5, 
+                    "max_power":52000
+                    "con_power":30000
+                },
+                {   "name":"EMRAX 228",
+                    "efficiency":0.98, 
+                    "mass":12.3,
+                    "brake_specific_fuel_consumption":4.25E-5, 
+                    "max_power":109000
+                    "con_power":62000
+                },
+                {   "name":"EMRAX 208",
+                    "efficiency":0.98, 
+                    "mass":9.3,
+                    "brake_specific_fuel_consumption":4.25E-5, 
+                    "max_power":68000
+                    "con_power":41000
+                }
+            ]
+        }
+    ]
+}
