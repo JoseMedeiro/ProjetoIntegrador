@@ -1,7 +1,7 @@
 %% Apresentação de uma das aeronaves
 
-adt('examples/project_starting_point_semana_7.json')
-
+aircraft = adt('examples/project_starting_point_semana_7.json')
+save_project(aircraft,'examples/project_starting_point_semana_7.json');
 %% Seletor natural para melhorar uma aeronave + sua apresentações
 
 % Cria uma aeronave nova e melhor
