@@ -221,8 +221,8 @@ for i = 1 : length(frame)
     elseif(is_type(frame{i},'engine.prop.eletric'))        
             % Maximum Power
             lim = [400000, 550000];
-            b1  = 2261;
-            b0  = 179666;
+            b1  = 15400;
+            b0  = 0;
             while 1
                 a = frame{i}.max_power*surprise((lim(1)-lim(2))/frame{i}.max_power, REL_ADVANCEMENT*2);
                 if is_in_limit(lim(1), a,lim(2))

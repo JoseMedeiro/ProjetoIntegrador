@@ -42,23 +42,23 @@ for c=1:length(complex_engines.engine_set)
         plot(real_engines.engine_set{c}.engines{d}.mass,...
             real_engines.engine_set{c}.engines{d}.max_power,...
             'rx');
-        legend_cell{n+2*d-1} =  [real_engines.engine_set{c}.engines{d}.name 'Max Power'];
+        legend_cell{n+2*d-1} =  [real_engines.engine_set{c}.engines{d}.name ' Max Power'];
         
         plot(   real_engines.engine_set{c}.engines{d}.mass,...
                 real_engines.engine_set{c}.engines{d}.con_power,...
             'bx');
-        legend_cell{n+2*d} =  [real_engines.engine_set{c}.engines{d}.name 'Continuous Power'];
+        legend_cell{n+2*d} =  [real_engines.engine_set{c}.engines{d}.name ' Continuous Power'];
         %x_real(d) = real_engines.engine_set{c}.engines{d}.mass;
         %y_real(d) = real_engines.engine_set{c}.engines{d}.max_power;
     end
     %plot(x_real,y_real,'x');
     %legend_cell{2*c -1} = real_engines.engine_set{c}.name;
     
-    n = n+2*d +1;
+    n = n+2*d +2;
     plot(x_aproximado, y_aproximado);
-    legend_cell{n} = ['RL de ' real_engines.engine_set{c}.name 'Max Power'];
+    legend_cell{n-1} = ['RL de ' real_engines.engine_set{c}.name ' Max Power'];
     plot(x_aproximado, z_aproximado);
-    legend_cell{n} = ['RL de ' real_engines.engine_set{c}.name 'Continuous Power'];
+    legend_cell{n} = ['RL de ' real_engines.engine_set{c}.name ' Continuous Power'];
 end
 
 legend(legend_cell,'Location','eastoutside','NumColumns', 2);
