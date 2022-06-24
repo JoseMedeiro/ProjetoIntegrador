@@ -82,12 +82,11 @@ for i = 1 : length(frame)
         lim_3 = [10 , 16];
         while 1
             % Aspect ratio
-            if aspect_ratio~=0
+            if aspect_ratio==0
                 while 1
                     a = frame{i}.aspect_ratio*surprise((lim_1(1)-lim_1(2))/frame{i}.aspect_ratio, REL_ADVANCEMENT);
                     if is_in_limit(lim_1(1), a, lim_1(2))
                         frame{i}.aspect_ratio = a;
-                        aspect_ratio = a;
                         break;
                     end
                 end
@@ -95,7 +94,7 @@ for i = 1 : length(frame)
                 frame{i}.aspect_ratio = aspect_ratio;
             end
             % mean chord
-            if mean_chord~=0
+            if mean_chord==0
             while 1
                 a = frame{i}.mean_chord*surprise((lim_2(1)-lim_2(2))/frame{i}.mean_chord, REL_ADVANCEMENT);
                 if is_in_limit(lim_2(1), a, lim_2(2))
@@ -108,6 +107,8 @@ for i = 1 : length(frame)
             end
             % span (inferred)
             if is_in_limit(lim_3(1), frame{i}.aspect_ratio*frame{i}.mean_chord, lim_3(2))
+                aspect_ratio = frame{i}.aspect_ratio;
+                mean_chord   = frame{i}.mean_chord;
                 break;
             end
         end
@@ -139,23 +140,33 @@ for i = 1 : length(frame)
         lim_3 = [10 , 16];
         while 1
             % Aspect ratio
-            while 1
-                a = frame{i}.aspect_ratio*surprise((lim_1(1)-lim_1(2))/frame{i}.aspect_ratio, REL_ADVANCEMENT);
-                if is_in_limit(lim_1(1), a, lim_1(2))
-                    frame{i}.aspect_ratio = a;
-                    break;
+            if aspect_ratio==0
+                while 1
+                    a = frame{i}.aspect_ratio*surprise((lim_1(1)-lim_1(2))/frame{i}.aspect_ratio, REL_ADVANCEMENT);
+                    if is_in_limit(lim_1(1), a, lim_1(2))
+                        frame{i}.aspect_ratio = a;
+                        break;
+                    end
                 end
+            else
+                frame{i}.aspect_ratio = aspect_ratio;
             end
             % mean chord
+            if mean_chord==0
             while 1
-                a = frame{i}.mean_chord*surprise(lim_2(1)-lim_2(2)/frame{i}.mean_chord, REL_ADVANCEMENT);
+                a = frame{i}.mean_chord*surprise((lim_2(1)-lim_2(2))/frame{i}.mean_chord, REL_ADVANCEMENT);
                 if is_in_limit(lim_2(1), a, lim_2(2))
                     frame{i}.mean_chord = a;
                     break;
                 end
             end
+            else
+                frame{i}.mean_chord = mean_chord;
+            end
             % span (inferred)
             if is_in_limit(lim_3(1), frame{i}.aspect_ratio*frame{i}.mean_chord, lim_3(2))
+                aspect_ratio = frame{i}.aspect_ratio;
+                mean_chord   = frame{i}.mean_chord;
                 break;
             end
         end
@@ -191,7 +202,7 @@ for i = 1 : length(frame)
     % },
     elseif(is_type(frame{i},'driver.rotor.main'))
         % Radius of the rotor
-        lim_1 = [2, 4];
+        lim_1 = [1.5, 2.5];
         while 1
             a = frame{i}.radius*surprise((lim_1(1)-lim_1(2))/frame{i}.radius, REL_ADVANCEMENT);
             if is_in_limit(lim_1(1), a,lim_1(2))

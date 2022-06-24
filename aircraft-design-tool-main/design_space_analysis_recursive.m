@@ -360,19 +360,31 @@ function ptl = cruise_speed_constraint_jet(wl, rho, v, cd_0, k)
 ptl = 1 ./ (rho .* v.^2 .* cd_0 ./ 2 ./ wl + 2 .* k .* wl ./ rho ./ v.^2);
 
 function ptl = cruise_speed_constraint_prop(wl, rho, v, cd_0, k, ee)
-ptl = ee ./ (rho .* v.^3 .* cd_0 ./ 2 ./ wl + 2 .* k .* wl ./ rho ./ v);
+if isnan(ee)
+    ptl = 0 ./ (rho .* v.^3 .* cd_0 ./ 2 ./ wl + 2 .* k .* wl ./ rho ./ v);
+else
+    ptl = ee ./ (rho .* v.^3 .* cd_0 ./ 2 ./ wl + 2 .* k .* wl ./ rho ./ v);
+end
 
 function pl = climb_constraint_jet(wl, rho, v, cd_0, k, gg)
 pl = 1 ./ (sind(gg) + rho .* v.^2 .* cd_0 ./ 2 ./ wl + 2 .* k .* wl ./ rho ./ v.^2);
 
 function pl = climb_constraint_prop(wl, rho, v, cd_0, k, gg, ee)
-pl = ee ./ (v .* sind(gg) + rho .* v.^3 .* cd_0 ./ 2 ./ wl + 2 .* k .* wl ./ rho ./ v);
+if isnan(ee)
+    pl = 0 ./ (v .* sind(gg) + rho .* v.^3 .* cd_0 ./ 2 ./ wl + 2 .* k .* wl ./ rho ./ v);
+else
+    pl = ee ./ (v .* sind(gg) + rho .* v.^3 .* cd_0 ./ 2 ./ wl + 2 .* k .* wl ./ rho ./ v);
+end
 
 function pl = climb_angle_constraint_jet(wl, rho, cd_0, k, gg)
 pl = climb_constraint_jet(wl, rho, v_best_climb_angle_jet(wl, rho, k, cd_0), cd_0, k, gg); % TODO: Replace with segment speed
 
 function pl = climb_angle_constraint_prop(wl, rho, cd_0, k, gg, ee)
-pl = climb_constraint_prop(wl, rho, v_best_climb_angle_prop(wl, rho, k, cd_0), cd_0, k, gg, ee); % TODO: Replace with segment speed
+if isnan(ee)
+    pl = climb_constraint_prop(wl, rho, v_best_climb_angle_prop(wl, rho, k, cd_0), cd_0, k, gg, 0); % TODO: Replace with segment speed
+else
+    pl = climb_constraint_prop(wl, rho, v_best_climb_angle_prop(wl, rho, k, cd_0), cd_0, k, gg, ee); % TODO: Replace with segment speed
+end
 
 % function pl = climb_rate(wl, rho, cd_0, k, gg, propulsion)
 % if is_jet(propulsion)

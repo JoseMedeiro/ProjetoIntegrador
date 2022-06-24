@@ -36,7 +36,7 @@ while abs(eff(1) - eff(2)) > 0.01
     wl = aircraft.vehicle.mass * constants.g / (c_1.area_ref + c_2.area_ref);
     % Gets P
     P = aircraft.vehicle.mass * constants.g /cruise_speed_constraint_prop(wl, rho, v, cd_0, k, eff(1));
-    Cp = P/(rho*(rotor.tip_velocity^2 - v^2)^(3/2))*pi^3/d^2;
+    Cp = P/4/(rho*(rotor.tip_velocity^2 - v^2)^(3/2))*pi^3/d^2;
     % Gets efficiency
     eff(2) = eff(1);
     eff(1) = interp2(eff_function.X, eff_function.Y, eff_function.Z, J, Cp);

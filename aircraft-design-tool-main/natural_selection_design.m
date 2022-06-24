@@ -2,7 +2,7 @@ function data = natural_selection_design(filename)
 %% Constants
 global constants;
 constants.g = 9.81; % m/s^2
-MAX_GEN                     = 100;
+MAX_GEN                     = 50;
 MAX_GEN_WITHOUT_IMPROVEMENT = 10;
 SIZE_POP                    = 100;
 BEST_BOYS                   = 10;
