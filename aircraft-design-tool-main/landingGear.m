@@ -2,10 +2,10 @@
 % o mtow está sujeito a alterações, esta é uma boa solução
 
 % Main Landing Gear - Rodas Traseiras
-Mtow   = 8000;  %Kg
+Mtow   = 6512.9;  %Kg
 Nrodas = 4;     
 
-MtowLBS  = 8000*2.20462262;
+MtowLBS  = Mtow*2.20462262;
 Wwheel   = 0.9*MtowLBS/Nrodas;
 DwheelIN = 1.51*Wwheel^0.349;
 LwheelIN = 0.715*Wwheel^0.312;

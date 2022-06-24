@@ -40,9 +40,9 @@ mu = 17.54e-6;
 
 g = 9.81;                   % m/s^2
 
-mass = 6300;                % kg
-area1 = 22.8;               % m^2
-area2 = 22.4;               % m^2
+mass = 6512.9;                % kg
+area1 = 20.0147;               % m^2
+area2 = 20.0147;               % m^2
 
 weight = mass*g;            % N
 
