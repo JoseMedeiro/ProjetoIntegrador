@@ -20,7 +20,7 @@ Re = (pho*chord*vel)/mu;
 sqrt(Re);
 %Calculo de CD0
 Cf=0.455/((log10(Re)^2.58)*(1+0.144*M^2)^0.65);
-F=1+60/(l/d)^3+(l/d)/400;
+F=1+60/((l1+l2+l3)/d)^3+((l1+l2+l3)/d)/400;
 Ff=q*Cf*F*Q;
 Cd0=Ff/(q*Sasas)
 racio=d/(l1+l2+l3)
