@@ -27,7 +27,7 @@ c_2             = find_by_type(aircraft.vehicle.components,'wing.htail');
 
 eff(1)          = rotor.efficiency;
 % Gets J
-J = v/sqrt((rotor.tip_velocity*0.7/0.5)^2 - v^2)*pi;
+J = v/sqrt((rotor.tip_velocity)^2 - v^2)*pi;
 
 while abs(eff(1) - eff(2)) > 0.01
     % Gets MTOW
@@ -42,6 +42,9 @@ while abs(eff(1) - eff(2)) > 0.01
     eff(1) = interp2(eff_function.X, eff_function.Y, eff_function.Z, J, Cp);
     aircraft.vehicle.components{rotor_id}.efficiency = eff(1);
 end
+
+fprintf('J = %f \nCp = %f\n\n',J,Cp);
+
 
 result = aircraft;
 

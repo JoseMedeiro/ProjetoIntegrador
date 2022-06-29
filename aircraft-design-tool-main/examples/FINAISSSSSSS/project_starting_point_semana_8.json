@@ -183,7 +183,7 @@
                 "type":"cruise", 
                 "energy_network":"Hybrid Energy Network", 
                 "velocity":100, 
-                "range":80000, 
+                "range":70000, 
                 "altitude":1100, 
                 "temperature":281, 
                 "speed_sound":336.04566585510366, 
@@ -291,7 +291,7 @@
                 "type":"cruise", 
                 "energy_network":"Hybrid Energy Network", 
                 "velocity":100, 
-                "range":80000, 
+                "range":70000, 
                 "altitude":1100, 
                 "temperature":281, 
                 "speed_sound":336.04566585510366, 
@@ -383,8 +383,8 @@
                 "name":"Fuselage", 
                 "type":"fuselage", 
                 "interf_factor":1, 
-                "diameter":2.3059739916112987, 
-                "length":9.7798593298601642, 
+                "diameter":2.25, 
+                "length":9, 
                 "mass":1060, 
                 "area_wet":79.521564043991631, 
                 "segments":[
@@ -474,8 +474,8 @@
                 "name":"Main Wing Front", 
                 "type":"wing.main", 
                 "interf_factor":1.5, 
-                "aspect_ratio":5.0013129614332028, 
-                "mean_chord":2.0004736230382036, 
+                "aspect_ratio":7, 
+                "mean_chord":2, 
                 "oswald_efficiency":0.85, 
                 "airfoil":{
                     "type":"naca2412", 
@@ -578,8 +578,8 @@
                 "name":"Horizontal Tail", 
                 "type":"wing.htail", 
                 "interf_factor":1.5, 
-                "aspect_ratio":5.0013129614332028, 
-                "mean_chord":2.0004736230382036, 
+                "aspect_ratio":7, 
+                "mean_chord":2, 
                 "oswald_efficiency":0.85, 
                 "airfoil":{
                     "type":"naca2412", 
@@ -687,7 +687,7 @@
                 "oswald_efficiency":0.85, 
                 "airfoil":{
                     "type":"naca0006", 
-                    "tc_max":0.06, 
+                    "tc_max":0.1, 
                     "xc_max":0.3, 
                     "lift_slope_coefficient":0.11, 
                     "cl_max":1.5
@@ -786,9 +786,9 @@
                 "name":"Turboshaft", 
                 "type":"engine.prop.turboshaft", 
                 "efficiency":0.8, 
-                "mass":315.84383514914475, 
+                "mass":260, 
                 "brake_specific_fuel_consumption":4.25E-5, 
-                "max_power":2.3999891111997692E+6
+                "max_power":2.0E+6
             }, 
             {
                 "name":"Battery", 
@@ -809,7 +809,7 @@
                 "type":"driver.rotor.main", 
                 "number":4, 
                 "number_blades":3, 
-                "radius":2.0417756199128347, 
+                "radius":2.0, 
                 "rotor_solidity":0.08, 
                 "induced_power_factor":1.15, 
                 "base_drag_coefficient":0.02, 
@@ -834,9 +834,9 @@
                 "type":"engine.prop.eletric", 
                 "number":4, 
                 "efficiency":0.97, 
-                "mass":35.577979966995343, 
+                "mass":160, 
                 "brake_specific_fuel_consumption":4.25E-5, 
-                "max_power":547900.89149172825
+                "max_power":550000
             }
         ], 
         "segments":[
@@ -904,8 +904,7 @@
                 "name":"Final Descent", 
                 "base_drag_coefficient":0
             }
-        ], 
-        "mass":7006.3557788848029
+        ]
     }, 
     "energy":{
         "networks":[
