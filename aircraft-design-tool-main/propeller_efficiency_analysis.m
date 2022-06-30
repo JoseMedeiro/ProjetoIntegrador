@@ -43,7 +43,7 @@ while abs(eff(1) - eff(2)) > 0.01
     aircraft.vehicle.components{rotor_id}.efficiency = eff(1);
 end
 
-fprintf('J = %f \nCp = %f\n\n',J,Cp);
+fprintf('J = %f \nCp = %f\nP = %f\n',J,Cp,P);
 
 
 result = aircraft;

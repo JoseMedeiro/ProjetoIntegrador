@@ -1,7 +1,7 @@
 %% Apresentação de uma das aeronaves
 
-aircraft = adt('examples/FINAISSSSSSS/project_better_semana_8.json');
-save_project(aircraft,'examples/FINAISSSSSSS/project_better_semana_8.json');
+aircraft = adt('examples/FINAISSSSSSS/project_FINALISSIMO.json');
+save_project(aircraft,'examples/FINAISSSSSSS/project_FINALISSIMO.json');
 %% Seletor natural para melhorar uma aeronave + sua apresentações
 
 % Cria uma aeronave nova e melhor
@@ -13,4 +13,3 @@ save_project(aircraft,name_end);
 % Apresenta as duas aeronaves
 adt(name_start);
 adt(name_end);
-

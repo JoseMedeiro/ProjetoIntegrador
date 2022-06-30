@@ -168,7 +168,7 @@
                 "name":"First Climb", 
                 "type":"climb", 
                 "energy_network":"Hybrid Energy Network", 
-                "velocity":60,
+                "velocity":60, 
                 "altitude":[100,1100], 
                 "angle":10, 
                 "temperature":[287.5,281], 
@@ -195,7 +195,7 @@
                 "name":"First Descent", 
                 "type":"descent", 
                 "energy_network":"Hybrid Energy Network", 
-                "velocity":70, 
+                "velocity":-70, 
                 "altitude":[1100,100], 
                 "angle":-10, 
                 "temperature":[281,287.5], 
@@ -303,7 +303,7 @@
                 "name":"Second Descent", 
                 "type":"descent", 
                 "energy_network":"Hybrid Energy Network", 
-                "velocity":70, 
+                "velocity":-70, 
                 "altitude":[1100,100], 
                 "angle":-10, 
                 "temperature":[281,287.5], 
@@ -386,41 +386,41 @@
                 "diameter":2.25, 
                 "length":9, 
                 "mass":405, 
-                "area_wet":87.554984987712885, 
+                "area_wet":79.521564043991631, 
                 "segments":[
                     {
                         "name":"First Ascent", 
-                        "base_drag_coefficient":0.029445251965968415, 
+                        "base_drag_coefficient":0.029427019939260002, 
                         "lift_slope_coefficient":0
                     }, 
                     {
                         "name":"First Transition - Up", 
-                        "base_drag_coefficient":0.020969216235970624, 
+                        "base_drag_coefficient":0.020918714911636039, 
                         "lift_slope_coefficient":0
                     }, 
                     {
                         "name":"First Climb", 
-                        "base_drag_coefficient":0.01914928293798485, 
+                        "base_drag_coefficient":0.019094924834452388, 
                         "lift_slope_coefficient":0
                     }, 
                     {
                         "name":"Madeira - Porto Santo", 
-                        "base_drag_coefficient":0.017786751053030996, 
+                        "base_drag_coefficient":0.017730527502515882, 
                         "lift_slope_coefficient":0
                     }, 
                     {
                         "name":"First Descent", 
-                        "base_drag_coefficient":0.018700123405461469, 
+                        "base_drag_coefficient":0.01864502747473281, 
                         "lift_slope_coefficient":0
                     }, 
                     {
                         "name":"First Transition - Down", 
-                        "base_drag_coefficient":0.02050504304675713, 
+                        "base_drag_coefficient":0.020453431176114433, 
                         "lift_slope_coefficient":0
                     }, 
                     {
                         "name":"Second Vertical Descent", 
-                        "base_drag_coefficient":0.029445251965968415, 
+                        "base_drag_coefficient":0.029427019939260002, 
                         "lift_slope_coefficient":0
                     }, 
                     {
@@ -430,32 +430,32 @@
                     }, 
                     {
                         "name":"Second Ascent", 
-                        "base_drag_coefficient":0.030975415405978021, 
+                        "base_drag_coefficient":0.030965181735035919, 
                         "lift_slope_coefficient":0
                     }, 
                     {
                         "name":"Second Transition - Up", 
-                        "base_drag_coefficient":0.021020337939140966, 
+                        "base_drag_coefficient":0.020969963683009889, 
                         "lift_slope_coefficient":0
                     }, 
                     {
                         "name":"Second Climb", 
-                        "base_drag_coefficient":0.01914928293798485, 
+                        "base_drag_coefficient":0.019094924834452388, 
                         "lift_slope_coefficient":0
                     }, 
                     {
                         "name":"Porto Santo - Madeira", 
-                        "base_drag_coefficient":0.017786751053030996, 
+                        "base_drag_coefficient":0.017730527502515882, 
                         "lift_slope_coefficient":0
                     }, 
                     {
                         "name":"Second Descent", 
-                        "base_drag_coefficient":0.018700123405461469, 
+                        "base_drag_coefficient":0.01864502747473281, 
                         "lift_slope_coefficient":0
                     }, 
                     {
                         "name":"Second Transition - Down", 
-                        "base_drag_coefficient":0.02050504304675713, 
+                        "base_drag_coefficient":0.020453431176114433, 
                         "lift_slope_coefficient":0
                     }, 
                     {
@@ -488,79 +488,79 @@
                 "sweep_c4":0, 
                 "sweep_tc_max":0, 
                 "mass":200, 
-                "span":10.004994659906206, 
-                "area_ref":20.014727915780448, 
-                "area_wet":40.818036111442645, 
+                "span":10, 
+                "area_ref":20, 
+                "area_wet":40.788000000000004, 
                 "segments":[
                     {
                         "name":"First Ascent", 
-                        "base_drag_coefficient":0.011658009570484558, 
-                        "lift_slope_coefficient":0.0717756124685086
+                        "base_drag_coefficient":0.011658548730112812, 
+                        "lift_slope_coefficient":0.071768614235035846
                     }, 
                     {
                         "name":"First Transition - Up", 
-                        "base_drag_coefficient":0.011623960545922093, 
-                        "lift_slope_coefficient":0.07197339362244265
+                        "base_drag_coefficient":0.011624425132671309, 
+                        "lift_slope_coefficient":0.071966349562574486
                     }, 
                     {
                         "name":"First Climb", 
-                        "base_drag_coefficient":0.011791981080698177, 
-                        "lift_slope_coefficient":0.072495639527440217
+                        "base_drag_coefficient":0.011792434866936837, 
+                        "lift_slope_coefficient":0.072488473496876538
                     }, 
                     {
                         "name":"Madeira - Porto Santo", 
-                        "base_drag_coefficient":0.011939336872340551, 
-                        "lift_slope_coefficient":0.073869570238770679
+                        "base_drag_coefficient":0.011939783118335507, 
+                        "lift_slope_coefficient":0.07386207656741256
                     }, 
                     {
                         "name":"First Descent", 
-                        "base_drag_coefficient":0.011812707825400103, 
-                        "lift_slope_coefficient":0.072762891153235948
+                        "base_drag_coefficient":0.01181315803750075, 
+                        "lift_slope_coefficient":0.072755662161725715
                     }, 
                     {
                         "name":"First Transition - Down", 
-                        "base_drag_coefficient":0.011640989562834263, 
-                        "lift_slope_coefficient":0.072041508836259774
+                        "base_drag_coefficient":0.011641450452446163, 
+                        "lift_slope_coefficient":0.072034448947553925
                     }, 
                     {
                         "name":"Second Vertical Descent", 
-                        "base_drag_coefficient":0.011658009570484558, 
-                        "lift_slope_coefficient":0.0717756124685086
+                        "base_drag_coefficient":0.011658548730112812, 
+                        "lift_slope_coefficient":0.071768614235035846
                     }, 
                     {
                         "name":"Load Porto Santo", 
                         "base_drag_coefficient":0, 
-                        "lift_slope_coefficient":0.0717724914231732
+                        "lift_slope_coefficient":0.071765493911251491
                     }, 
                     {
                         "name":"Second Ascent", 
-                        "base_drag_coefficient":0.0045786561101706464, 
-                        "lift_slope_coefficient":0.071774246954874762
+                        "base_drag_coefficient":0.00457919821733269, 
+                        "lift_slope_coefficient":0.071767249037099731
                     }, 
                     {
                         "name":"Second Transition - Up", 
-                        "base_drag_coefficient":0.011622223308000961, 
-                        "lift_slope_coefficient":0.07196713595716428
+                        "base_drag_coefficient":0.011622688304416505, 
+                        "lift_slope_coefficient":0.071960093350280266
                     }, 
                     {
                         "name":"Second Climb", 
-                        "base_drag_coefficient":0.011791981080698177, 
-                        "lift_slope_coefficient":0.072495639527440217
+                        "base_drag_coefficient":0.011792434866936837, 
+                        "lift_slope_coefficient":0.072488473496876538
                     }, 
                     {
                         "name":"Porto Santo - Madeira", 
-                        "base_drag_coefficient":0.011939336872340551, 
-                        "lift_slope_coefficient":0.073869570238770679
+                        "base_drag_coefficient":0.011939783118335507, 
+                        "lift_slope_coefficient":0.07386207656741256
                     }, 
                     {
                         "name":"Second Descent", 
-                        "base_drag_coefficient":0.011812707825400103, 
-                        "lift_slope_coefficient":0.072762891153235948
+                        "base_drag_coefficient":0.01181315803750075, 
+                        "lift_slope_coefficient":0.072755662161725715
                     }, 
                     {
                         "name":"Second Transition - Down", 
-                        "base_drag_coefficient":0.011640989562834263, 
-                        "lift_slope_coefficient":0.072041508836259774
+                        "base_drag_coefficient":0.011641450452446163, 
+                        "lift_slope_coefficient":0.072034448947553925
                     }, 
                     {
                         "name":"Second Vertical Descent", 
@@ -570,7 +570,7 @@
                     {
                         "name":"Final Descent", 
                         "base_drag_coefficient":0, 
-                        "lift_slope_coefficient":0.0717724914231732
+                        "lift_slope_coefficient":0.071765493911251491
                     }
                 ]
             }, 
@@ -592,79 +592,79 @@
                 "sweep_c4":0, 
                 "sweep_tc_max":0, 
                 "mass":200, 
-                "span":10.004994659906206, 
-                "area_ref":20.014727915780448, 
-                "area_wet":40.818036111442645, 
+                "span":10, 
+                "area_ref":20, 
+                "area_wet":40.788000000000004, 
                 "segments":[
                     {
                         "name":"First Ascent", 
-                        "base_drag_coefficient":0.011658009570484558, 
-                        "lift_slope_coefficient":0.050242928727956021
+                        "base_drag_coefficient":0.011658548730112812, 
+                        "lift_slope_coefficient":0.050238029964525088
                     }, 
                     {
                         "name":"First Transition - Up", 
-                        "base_drag_coefficient":0.011623960545922093, 
-                        "lift_slope_coefficient":0.050381375535709864
+                        "base_drag_coefficient":0.011624425132671309, 
+                        "lift_slope_coefficient":0.050376444693802133
                     }, 
                     {
                         "name":"First Climb", 
-                        "base_drag_coefficient":0.011791981080698177, 
-                        "lift_slope_coefficient":0.050746947669208155
+                        "base_drag_coefficient":0.011792434866936837, 
+                        "lift_slope_coefficient":0.050741931447813568
                     }, 
                     {
                         "name":"Madeira - Porto Santo", 
-                        "base_drag_coefficient":0.011939336872340551, 
-                        "lift_slope_coefficient":0.05170869916713948
+                        "base_drag_coefficient":0.011939783118335507, 
+                        "lift_slope_coefficient":0.051703453597188788
                     }, 
                     {
                         "name":"First Descent", 
-                        "base_drag_coefficient":0.011812707825400103, 
-                        "lift_slope_coefficient":0.050934023807265166
+                        "base_drag_coefficient":0.01181315803750075, 
+                        "lift_slope_coefficient":0.050928963513208
                     }, 
                     {
                         "name":"First Transition - Down", 
-                        "base_drag_coefficient":0.011640989562834263, 
-                        "lift_slope_coefficient":0.050429056185381849
+                        "base_drag_coefficient":0.011641450452446163, 
+                        "lift_slope_coefficient":0.050424114263287738
                     }, 
                     {
                         "name":"Second Vertical Descent", 
-                        "base_drag_coefficient":0.011658009570484558, 
-                        "lift_slope_coefficient":0.050242928727956021
+                        "base_drag_coefficient":0.011658548730112812, 
+                        "lift_slope_coefficient":0.050238029964525088
                     }, 
                     {
                         "name":"Load Porto Santo", 
                         "base_drag_coefficient":0, 
-                        "lift_slope_coefficient":0.050240743996221249
+                        "lift_slope_coefficient":0.050235845737876039
                     }, 
                     {
                         "name":"Second Ascent", 
-                        "base_drag_coefficient":0.0045786561101706464, 
-                        "lift_slope_coefficient":0.050241972868412338
+                        "base_drag_coefficient":0.00457919821733269, 
+                        "lift_slope_coefficient":0.050237074325969806
                     }, 
                     {
                         "name":"Second Transition - Up", 
-                        "base_drag_coefficient":0.011622223308000961, 
-                        "lift_slope_coefficient":0.050376995170015
+                        "base_drag_coefficient":0.011622688304416505, 
+                        "lift_slope_coefficient":0.050372065345196178
                     }, 
                     {
                         "name":"Second Climb", 
-                        "base_drag_coefficient":0.011791981080698177, 
-                        "lift_slope_coefficient":0.050746947669208155
+                        "base_drag_coefficient":0.011792434866936837, 
+                        "lift_slope_coefficient":0.050741931447813568
                     }, 
                     {
                         "name":"Porto Santo - Madeira", 
-                        "base_drag_coefficient":0.011939336872340551, 
-                        "lift_slope_coefficient":0.05170869916713948
+                        "base_drag_coefficient":0.011939783118335507, 
+                        "lift_slope_coefficient":0.051703453597188788
                     }, 
                     {
                         "name":"Second Descent", 
-                        "base_drag_coefficient":0.011812707825400103, 
-                        "lift_slope_coefficient":0.050934023807265166
+                        "base_drag_coefficient":0.01181315803750075, 
+                        "lift_slope_coefficient":0.050928963513208
                     }, 
                     {
                         "name":"Second Transition - Down", 
-                        "base_drag_coefficient":0.011640989562834263, 
-                        "lift_slope_coefficient":0.050429056185381849
+                        "base_drag_coefficient":0.011641450452446163, 
+                        "lift_slope_coefficient":0.050424114263287738
                     }, 
                     {
                         "name":"Second Vertical Descent", 
@@ -674,7 +674,7 @@
                     {
                         "name":"Final Descent", 
                         "base_drag_coefficient":0, 
-                        "lift_slope_coefficient":0.050240743996221249
+                        "lift_slope_coefficient":0.050235845737876039
                     }
                 ]
             }, 
@@ -702,37 +702,37 @@
                 "segments":[
                     {
                         "name":"First Ascent", 
-                        "base_drag_coefficient":0.0008614969937802263, 
+                        "base_drag_coefficient":0.00086213139653870154, 
                         "lift_slope_coefficient":0.074476863828810788
                     }, 
                     {
                         "name":"First Transition - Up", 
-                        "base_drag_coefficient":0.0019111788112762117, 
+                        "base_drag_coefficient":0.0019125861953049044, 
                         "lift_slope_coefficient":0.07468206086682258
                     }, 
                     {
                         "name":"First Climb", 
-                        "base_drag_coefficient":0.0019299984424437546, 
+                        "base_drag_coefficient":0.00193141968516959, 
                         "lift_slope_coefficient":0.0752238875910983
                     }, 
                     {
                         "name":"Madeira - Porto Santo", 
-                        "base_drag_coefficient":0.0019475111630341076, 
+                        "base_drag_coefficient":0.00194894530205364, 
                         "lift_slope_coefficient":0.076649324739767752
                     }, 
                     {
                         "name":"First Descent", 
-                        "base_drag_coefficient":0.0019312016262042733, 
+                        "base_drag_coefficient":0.0019326237549495632, 
                         "lift_slope_coefficient":0.075501158847073854
                     }, 
                     {
                         "name":"First Transition - Down", 
-                        "base_drag_coefficient":0.0019117726450155513, 
+                        "base_drag_coefficient":0.001913180466340909, 
                         "lift_slope_coefficient":0.07475273003991445
                     }, 
                     {
                         "name":"Second Vertical Descent", 
-                        "base_drag_coefficient":0.0008614969937802263, 
+                        "base_drag_coefficient":0.00086213139653870154, 
                         "lift_slope_coefficient":0.074476863828810788
                     }, 
                     {
@@ -742,32 +742,32 @@
                     }, 
                     {
                         "name":"Second Ascent", 
-                        "base_drag_coefficient":0.000944570030363848, 
+                        "base_drag_coefficient":0.00094526560775664464, 
                         "lift_slope_coefficient":0.074475447113971416
                     }, 
                     {
                         "name":"Second Transition - Up", 
-                        "base_drag_coefficient":0.0019111348211882711, 
+                        "base_drag_coefficient":0.0019125421728228482, 
                         "lift_slope_coefficient":0.074675568571045556
                     }, 
                     {
                         "name":"Second Climb", 
-                        "base_drag_coefficient":0.0019299984424437546, 
+                        "base_drag_coefficient":0.00193141968516959, 
                         "lift_slope_coefficient":0.0752238875910983
                     }, 
                     {
                         "name":"Porto Santo - Madeira", 
-                        "base_drag_coefficient":0.0019475111630341076, 
+                        "base_drag_coefficient":0.00194894530205364, 
                         "lift_slope_coefficient":0.076649324739767752
                     }, 
                     {
                         "name":"Second Descent", 
-                        "base_drag_coefficient":0.0019312016262042733, 
+                        "base_drag_coefficient":0.0019326237549495632, 
                         "lift_slope_coefficient":0.075501158847073854
                     }, 
                     {
                         "name":"Second Transition - Down", 
-                        "base_drag_coefficient":0.0019117726450155513, 
+                        "base_drag_coefficient":0.001913180466340909, 
                         "lift_slope_coefficient":0.07475273003991445
                     }, 
                     {
@@ -793,16 +793,16 @@
             {
                 "name":"Battery", 
                 "type":"energy.electric", 
-                "specific_energy":1080000, 
+                "specific_energy":1.08E+6, 
                 "efficiency":0.9, 
                 "reserve":0.2, 
-                "mass":522.6476084709343
+                "mass":116.18993571572034
             }, 
             {
                 "name":"Fuel Tank", 
                 "type":"energy.fuel", 
                 "reserve":0.06, 
-                "mass":2171.3543126007571
+                "mass":1538.403825389672
             }, 
             {
                 "name":"Rotor", 
@@ -814,7 +814,7 @@
                 "induced_power_factor":1.15, 
                 "base_drag_coefficient":0.02, 
                 "tip_velocity":238, 
-                "efficiency":0.82009754122163581, 
+                "efficiency":0.82777265060464433, 
                 "mass":20
             }, 
             {
@@ -842,31 +842,31 @@
         "segments":[
             {
                 "name":"First Ascent", 
-                "base_drag_coefficient":0.053622768100717762
+                "base_drag_coefficient":0.053606248796024318
             }, 
             {
                 "name":"First Transition - Up", 
-                "base_drag_coefficient":0.046128316139091026
+                "base_drag_coefficient":0.046080151372283565
             }, 
             {
                 "name":"First Climb", 
-                "base_drag_coefficient":0.044663243541824958
+                "base_drag_coefficient":0.044611214253495658
             }, 
             {
                 "name":"Madeira - Porto Santo", 
-                "base_drag_coefficient":0.0436129359607462
+                "base_drag_coefficient":0.043559039041240533
             }, 
             {
                 "name":"First Descent", 
-                "base_drag_coefficient":0.044256740682465948
+                "base_drag_coefficient":0.044203967304683872
             }, 
             {
                 "name":"First Transition - Down", 
-                "base_drag_coefficient":0.045698794817441213
+                "base_drag_coefficient":0.04564951254734767
             }, 
             {
                 "name":"Second Vertical Descent", 
-                "base_drag_coefficient":0.10724553620143552
+                "base_drag_coefficient":0.10721249759204865
             }, 
             {
                 "name":"Load Porto Santo", 
@@ -874,27 +874,27 @@
             }, 
             {
                 "name":"Second Ascent", 
-                "base_drag_coefficient":0.041077297656683158
+                "base_drag_coefficient":0.041068843777457946
             }, 
             {
                 "name":"Second Transition - Up", 
-                "base_drag_coefficient":0.046175919376331157
+                "base_drag_coefficient":0.046127882464665745
             }, 
             {
                 "name":"Second Climb", 
-                "base_drag_coefficient":0.044663243541824958
+                "base_drag_coefficient":0.044611214253495658
             }, 
             {
                 "name":"Porto Santo - Madeira", 
-                "base_drag_coefficient":0.0436129359607462
+                "base_drag_coefficient":0.043559039041240533
             }, 
             {
                 "name":"Second Descent", 
-                "base_drag_coefficient":0.044256740682465948
+                "base_drag_coefficient":0.044203967304683872
             }, 
             {
                 "name":"Second Transition - Down", 
-                "base_drag_coefficient":0.045698794817441213
+                "base_drag_coefficient":0.04564951254734767
             }, 
             {
                 "name":"Second Vertical Descent", 
@@ -905,7 +905,7 @@
                 "base_drag_coefficient":0
             }
         ], 
-        "mass":6270
+        "mass":4455.1359777719172
     }, 
     "energy":{
         "networks":[

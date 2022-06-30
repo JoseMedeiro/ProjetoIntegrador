@@ -158,14 +158,14 @@
                 "type": "cruise",
                 "energy_network": "Hybrid Energy Network",
                 "velocity": 100.0,
-                "range": 80000.0,
+                "range": 70000.0,
                 "altitude": 1100.0
             },
             {
                 "name": "First Descent",
                 "type": "descent",
                 "energy_network": "Hybrid Energy Network",
-                "velocity": -70.0,
+                "velocity": 70.0,
                 "altitude": [1100.0, 100.0],
                 "angle": -10.0
             },
@@ -221,14 +221,14 @@
                 "type": "cruise",
                 "energy_network": "Hybrid Energy Network",
                 "velocity": 100.0,
-                "range": 80000.0,
+                "range": 70000.0,
                 "altitude": 1100.0
             },
             {
                 "name": "Second Descent",
                 "type": "descent",
                 "energy_network": "Hybrid Energy Network",
-                "velocity": -70.0,
+                "velocity": 70.0,
                 "altitude": [1100.0, 100.0],
                 "angle": -10.0
             },

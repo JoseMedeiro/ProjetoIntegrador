@@ -26,7 +26,7 @@ plot_mission(data.mission);
 %% Mission analyses
 data.vehicle = aero_analysis(data.mission, data.vehicle);
 [data.mission, data.vehicle] = mass_analysis(data.mission, data.vehicle, data.energy);
-data         = propeller_efficiency_analysis(data);
+%data         = propeller_efficiency_analysis(data);
 data.vehicle = design_space_analysis(data.mission, data.vehicle, data.energy);
 
 %% Save new project file
