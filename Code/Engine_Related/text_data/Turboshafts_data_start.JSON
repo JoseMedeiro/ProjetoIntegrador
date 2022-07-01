@@ -1,0 +1,176 @@
+{   "engine_set":[
+        {   "type":"turboshaft",
+            "name":"Turboshafts",
+            "engines":[
+                {   "name":"PT6B",
+                    "efficiency":0.8, 
+                    "mass":175,
+                    "brake_specific_fuel_consumption":4.25E-5, 
+                    "max_power":745700
+                },
+                {   "name":"PT6C", 
+                    "efficiency":0.8, 
+                    "mass":190, 
+                    "brake_specific_fuel_consumption":4.25E-5, 
+                    "max_power":1491400
+                },
+                {   "name":"PT6T", 
+                    "efficiency":0.8, 
+                    "mass":299,
+                    "brake_specific_fuel_consumption":4.25E-5, 
+                    "max_power":1640540
+                },
+                {   "name":"PW200",
+                    "efficiency":0.8, 
+                    "mass":108,
+                    "brake_specific_fuel_consumption":4.25E-5, 
+                    "max_power":521990
+                },
+                {   "name":"M250Series", 
+                    "efficiency":0.8, 
+                    "mass":124, 
+                    "brake_specific_fuel_consumption":4.25E-5, 
+                    "max_power":533175
+                },
+                {   "name":"RR300", 
+                    "efficiency":0.8, 
+                    "mass":80,
+                    "brake_specific_fuel_consumption":4.25E-5, 
+                    "max_power":223710
+                },
+                {   "name":"CT800",
+                    "efficiency":0.8, 
+                    "mass":170,
+                    "brake_specific_fuel_consumption":4.25E-5, 
+                    "max_power":1193120
+                },
+                {   "name":"GEM", 
+                    "efficiency":0.8, 
+                    "mass":188, 
+                    "brake_specific_fuel_consumption":4.25E-5, 
+                    "max_power":745700
+                },
+                {   "name":"Arrius", 
+                    "efficiency":0.8, 
+                    "mass":101,
+                    "brake_specific_fuel_consumption":4.25E-5, 
+                    "max_power":559275
+                },
+                {   "name":"Arriel",
+                    "efficiency":0.8, 
+                    "mass":111,
+                    "brake_specific_fuel_consumption":4.25E-5, 
+                    "max_power":738243
+                },
+                {   "name":"TM333", 
+                    "efficiency":0.8, 
+                    "mass":166, 
+                    "brake_specific_fuel_consumption":4.25E-5, 
+                    "max_power":820270
+                },
+                {   "name":"Ardiden", 
+                    "efficiency":0.8, 
+                    "mass":205,
+                    "brake_specific_fuel_consumption":4.25E-5, 
+                    "max_power":1491400
+                },
+                {   "name":"Makila",
+                    "efficiency":0.8, 
+                    "mass":279,
+                    "brake_specific_fuel_consumption":4.25E-5, 
+                    "max_power":1640540
+                },
+                {   "name":"RM322", 
+                    "efficiency":0.8, 
+                    "mass":228, 
+                    "brake_specific_fuel_consumption":4.25E-5, 
+                    "max_power":1938820
+                },
+                {   "name":"T55", 
+                    "efficiency":0.8, 
+                    "mass":377,
+                    "brake_specific_fuel_consumption":4.25E-5, 
+                    "max_power":3621864
+                },
+                {   "name":"T53",
+                    "efficiency":0.8, 
+                    "mass":312,
+                    "brake_specific_fuel_consumption":4.25E-5, 
+                    "max_power":447420
+                },
+                {   "name":"LTS", 
+                    "efficiency":0.8, 
+                    "mass":109, 
+                    "brake_specific_fuel_consumption":4.25E-5, 
+                    "max_power":503347
+                },
+                {   "name":"T406", 
+                    "efficiency":0.8, 
+                    "mass":440,
+                    "brake_specific_fuel_consumption":4.25E-5, 
+                    "max_power":4586054
+                },
+                {   "name":"AE2100",
+                    "efficiency":0.8, 
+                    "mass":783,
+                    "brake_specific_fuel_consumption":4.25E-5, 
+                    "max_power":3457810
+                },
+                {   "name":"250", 
+                    "efficiency":0.8, 
+                    "mass":62, 
+                    "brake_specific_fuel_consumption":4.25E-5, 
+                    "max_power":186425
+                },
+                {   "name":"T58", 
+                    "efficiency":0.8, 
+                    "mass":177,
+                    "brake_specific_fuel_consumption":4.25E-5, 
+                    "max_power":1394459
+                },
+                {   "name":"T64",
+                    "efficiency":0.8, 
+                    "mass":327,
+                    "brake_specific_fuel_consumption":4.25E-5, 
+                    "max_power":3542074
+                },
+                {   "name":"T700CT7", 
+                    "efficiency":0.8, 
+                    "mass":204, 
+                    "brake_specific_fuel_consumption":4.25E-5, 
+                    "max_power":1938820
+                },
+                {   "name":"GE38", 
+                    "efficiency":0.8, 
+                    "mass":501,
+                    "brake_specific_fuel_consumption":4.25E-5, 
+                    "max_power":5592749
+                },
+                {   "name":"KlimovTV3117", 
+                    "efficiency":0.8, 
+                    "mass":294,
+                    "brake_specific_fuel_consumption":4.25E-5, 
+                    "max_power":1640540
+                },
+                {   "name":"KlimovVK2500",
+                    "efficiency":0.8, 
+                    "mass":300,
+                    "brake_specific_fuel_consumption":4.25E-5, 
+                    "max_power":2013390
+                },
+                {   "name":"SolovievD25", 
+                    "efficiency":0.8, 
+                    "mass":601, 
+                    "brake_specific_fuel_consumption":4.25E-5, 
+                    "max_power":3542074
+                },
+                {   "name":"LotarevD136", 
+                    "efficiency":0.8, 
+                    "mass":489,
+                    "brake_specific_fuel_consumption":4.25E-5, 
+                    "max_power":8500979
+                }
+            ]
+        }
+    ]
+}

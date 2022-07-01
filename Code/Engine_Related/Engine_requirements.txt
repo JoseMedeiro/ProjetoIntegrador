@@ -1,0 +1,11 @@
+Nome do Motor
+Potência Máxima do Motor
+Peso do Motor
+Eficiência
+Brake Specific Fuel Consumption
+Motores Elétricos (Prop)	Não ver Jet engines
+
+Turboshaft
+Procurar as mesmas coisas
+
+magniX
