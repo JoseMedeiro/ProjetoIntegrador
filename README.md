@@ -2,6 +2,8 @@
 
 Neste repositório encontra-se o código obtido e desenvolvido durante a unidade curricular.
 
+
+
 Dentro da pasta *Code* o código está separado nas suas diversas componentes, sendo o MAIN_CODE o principal desenvolvido; é de notar que é experimental, pelo que determinados inputs podem levar a loops infinitos.
 
 Na pasta *Engine_Related* encontram-se os dados e código para a interpolação dos componentes propulsivos.
@@ -16,7 +18,11 @@ Na pasta *graphs* encontram-se as imagens carregadas para o Matlab a fim de auto
 
 Na pasta *xfoil* encontra-se o código desenvolvido para a análise dos perfis da asa.
 
+# Disclaimer
+
 O código aqui desenvolvido *não* foi projetado para ser ótimo na sua utilização, ou seja, a sua partilha destina-se a demonstrar o trabalho desenvolvido, como meio, e não como uma aplicação funcional a partir de caixa, como fim.
+
+# Contactos
 
 Qualquer dúvida que possa surgir na concecção ou funcionamento do código aqui presente encontra-se disponível o email
 
