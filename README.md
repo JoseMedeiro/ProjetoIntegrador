@@ -10,7 +10,7 @@ Na pasta *Engine_Related* encontram-se os dados e código para a interpolação 
 
 Na pasta *MTOW* encontra-se o código para o estudo paramétrico.
 
-Na pasta *Static_Stability* encontra-se o Excel desnvolvido para o cálculo da margem estática.
+Na pasta *Static_Stability* encontra-se o Excel desenvolvido para o cálculo da margem estática.
 
 Na pasta *examples* encontram-se as diversas fases da aeronave, com a final presente na subpasta *FINAISSSSSSS*, com o nome *project_FINALISSIMO.json*. É o ficheiro inicialmente carregado pelo programa MAIN_CODE.
 
